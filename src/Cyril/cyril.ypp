@@ -1,0 +1,431 @@
+%{
+#include <cstdio>
+#include <iostream>
+#include "ofMain.h"
+#include "cmds.h"
+#include "Cyril.h"
+#include "CyrilList.h"
+#include "CyrilAssign.h"
+#include "CyrilPush.h"
+#include "CyrilDo.h"
+#include "CyrilFor.h"
+#include "CyrilIf.h"
+#include "CyrilWhile.h"
+#include "CyrilHexColor.h"
+#include "CyrilNamedColor.h"
+#include "CyrilBinaryOp.h"
+#include "CyrilLoad.h"
+#include "CyrilColorLoad.h"
+#include "CyrilUnaryOp.h"
+#include "CyrilParticle.h"
+#include "CyrilPalette.h"
+#include "CyrilPaletteItem.h"
+#include "CyrilBlink.h"
+#include "CyrilTile.h"
+
+#include "CyrilOp.h"
+#include "CyrilBoxOp.h"
+#include "CyrilMoveOp.h"
+#include "CyrilRotateOp.h"
+#include "CyrilScaleOp.h"
+#include "CyrilPushMatrixOp.h"
+#include "CyrilPopMatrixOp.h"
+#include "CyrilLineOp.h"
+#include "CyrilBackgroundOp.h"
+#include "CyrilColorOp.h"
+#include "CyrilDebugOp.h"
+#include "CyrilBallOp.h"
+#include "CyrilSphereOp.h"
+#include "CyrilPegOp.h"
+#include "CyrilRectOp.h"
+#include "CyrilConeOp.h"
+#include "CyrilGridOp.h"
+#include "CyrilBallDetailOp.h"
+#include "CyrilSphereDetailOp.h"
+#include "CyrilImgOp.h"
+#include "CyrilLightOp.h"
+#include "CyrilFillOp.h"
+#include "CyrilNoFillOp.h"
+#include "CyrilInitOp.h"
+
+#include "CyrilAnimation.h"
+#include "CyrilAnimStep.h"
+#include "CyrilShape.h"
+#include "CyrilShapeList.h"
+
+#include "CyrilFun.h"
+#include "CyrilWaveFun.h"
+#include "CyrilSinFun.h"
+#include "CyrilCosFun.h"
+#include "CyrilTanFun.h"
+#include "CyrilNoiseFun.h"
+#include "CyrilRandFun.h"
+#include "CyrilHsbFun.h"
+#include "CyrilMapFun.h"
+#include "CyrilLerpFun.h"
+#include "CyrilPaletteFun.h"
+#include "CyrilFftFun.h"
+
+using namespace std;
+
+extern "C" int yylex();
+extern "C" int yyparse();
+extern FILE *yyin;
+
+int line_no = 0;
+Cyril * pRoot;
+
+void yyerror(const char *s);
+map<string, int> symTab;
+map<string, int> paletteTab;
+
+int paletteFind(string _s) {
+  if (paletteTab.find(_s) == paletteTab.end()) {
+    int loc = paletteTab.size();
+    paletteTab[_s] = loc;
+    return loc;
+  }
+  return paletteTab[_s];
+}
+
+int regFind(string _s) {
+  if ("TIME" == _s) return REG_TIME;
+  if ("SECS" == _s) return REG_SECS;
+  if ("FAST" == _s) return REG_FAST;
+  if ("SLOW" == _s) return REG_SLOW;
+  if ("FRAME" == _s) return REG_FRAME;
+  if ("PI" == _s) return REG_PI;
+  if ("TWO_PI" == _s) return REG_TWO_PI;
+  if ("HEALTH" == _s) return REG_PARTICLE_HEALTH;
+  if ("DECAY" == _s) return REG_PARTICLE_DECAY;
+  if ("SIGNAL" == _s) return REG_MIND_SIGNAL;
+  if ("ATTENTION" == _s) return REG_MIND_ATTENTION;
+  if ("MEDITATION" == _s) return REG_MIND_MEDITATION;
+  if ("DELTA" == _s) return REG_MIND_DELTA;
+  if ("THETA" == _s) return REG_MIND_THETA;
+  if ("LOWALPHA" == _s) return REG_MIND_LOWALPHA;
+  if ("HIGHALPHA" == _s) return REG_MIND_HIGHALPHA;
+  if ("LOWBETA" == _s) return REG_MIND_LOWBETA;
+  if ("HIGHBETA" == _s) return REG_MIND_HIGHBETA;
+  if ("LOWGAMMA" == _s) return REG_MIND_LOWGAMMA;
+  if ("MIDGAMMA" == _s) return REG_MIND_MIDGAMMA;
+  if ("KICK" == _s) return REG_BEAT_KICK;
+  if ("SNARE" == _s) return REG_BEAT_SNARE;
+  if ("HIHAT" == _s) return REG_BEAT_HIHAT;
+  if ("VOL" == _s) return REG_BEAT_MAGNITUDE;
+  
+  if (symTab.find(_s) == symTab.end()) {
+    int loc = symTab.size() + REG_COUNT;
+    symTab[_s] = loc;
+    return loc;
+  }
+  return symTab[_s];
+}
+ 
+Cyril * cyrilOpFactory(const char * _s, Cyril * _c) {
+  if (strncmp("box", _s, 3) == 0) return new CyrilBoxOp(_c);
+  if (strncmp("move", _s, 4) == 0) return new CyrilMoveOp(_c);
+  if (strncmp("rotate", _s, 6) == 0) return new CyrilRotateOp(_c);
+  if (strncmp("scale", _s, 5) == 0) return new CyrilScaleOp(_c);
+  if (strncmp("pushMatrix", _s, 4) == 0) return new CyrilPushMatrixOp(_c);
+  if (strncmp("popMatrix", _s, 3) == 0) return new CyrilPopMatrixOp(_c);
+  if (strncmp("line", _s, 4) == 0) return new CyrilLineOp(_c);
+  if (strncmp("background", _s, 10) == 0) return new CyrilBackgroundOp(_c);
+  if (strncmp("color", _s, 5) == 0) return new CyrilColorOp(_c);
+  if (strncmp("debug", _s, 5) == 0) return new CyrilDebugOp(_c);
+  if (strncmp("peg", _s, 3) == 0) return new CyrilPegOp(_c);
+  if (strncmp("rect", _s, 4) == 0) return new CyrilRectOp(_c);
+  if (strncmp("cone", _s, 4) == 0) return new CyrilConeOp(_c);
+  if (strncmp("grid", _s, 4) == 0) return new CyrilGridOp(_c);
+  if (strncmp("ballDetail", _s, 10) == 0) return new CyrilBallDetailOp(_c);
+  if (strncmp("sphereDetail", _s, 12) == 0) return new CyrilSphereDetailOp(_c);
+  if (strncmp("ball", _s, 4) == 0) return new CyrilBallOp(_c);
+  if (strncmp("sphere", _s, 6) == 0) return new CyrilSphereOp(_c);
+  if (strncmp("img", _s, 3) == 0) return new CyrilImgOp(_c);
+  if (strncmp("light", _s, 5) == 0) return new CyrilLightOp(_c);
+  if (strncmp("lightColor", _s, 10) == 0) return new CyrilLightOp(_c);
+  if (strncmp("noFill", _s, 6) == 0) return new CyrilNoFillOp(_c);
+  if (strncmp("stroke", _s, 6) == 0) return new CyrilNoFillOp(_c);
+  if (strncmp("fill", _s, 4) == 0) return new CyrilFillOp(_c);
+  if (strncmp("vert", _s, 4) == 0) return new CyrilShapeList(_c);
+  return new CyrilOp(_c);
+}
+
+Cyril * cyrilFunFactory(const char * _s, Cyril * _c) {
+  if (strncmp("wave", _s, 4) == 0) return new CyrilWaveFun(_c);
+  if (strncmp("sin", _s, 3) == 0) return new CyrilSinFun(_c);
+  if (strncmp("cos", _s, 3) == 0) return new CyrilCosFun(_c);
+  if (strncmp("tan", _s, 3) == 0) return new CyrilTanFun(_c);
+  if (strncmp("noise", _s, 5) == 0) return new CyrilNoiseFun(_c);
+  if (strncmp("rand", _s, 4) == 0) return new CyrilRandFun(_c);
+  if (strncmp("hsb", _s, 3) == 0) return new CyrilHsbFun(_c);
+  if (strncmp("hsv", _s, 3) == 0) return new CyrilHsbFun(_c);
+  if (strncmp("map", _s, 3) == 0) return new CyrilMapFun(_c);
+  if (strncmp("lerp", _s, 4) == 0) return new CyrilLerpFun(_c);
+  if (strncmp("pal", _s, 3) == 0) return new CyrilPaletteFun(_c);
+  if (strncmp("fft", _s, 3) == 0) return new CyrilFftFun(_c);
+  return new CyrilFun(_c);
+}
+
+%}
+
+%union {
+  float fval;
+  char *sval;
+  class Cyril *ast;
+}
+
+%token ENDL COMMA LEFT RIGHT ASSIGN DO TIMES END UNTIL IF WHILE INIT
+%token FOR TO STEP PARTICLE PALETTE BLINK ANIM NEXT TILE SHAPE
+%token PLUS MINUS MOD MULT DIV EQ LESS LESSEQ GR GREQ NOTEQ NOT AND OR
+%token <sval> HEX_COLOR LABEL KEYWORD FUNCTION COLOR_VAR PALETTE_NAME COLOR_NAME
+%token <fval> NUMBER
+
+%left MULT PLUS MINUS DIV MOD EQ NOTEQ LESSEQ LESS GREQ GR
+%right NOT
+
+%type <ast> expr expr_list statement statement_list cyril palette_list anim_list 
+
+%start cyril
+%%
+
+cyril: statement_list {
+  pRoot = $1;
+}
+
+statement_list:
+statement
+{
+  $$ = $1;
+}
+| statement_list statement
+{
+  $$ = new CyrilList($1, $2);
+  
+}
+;
+
+statement:
+ENDL
+{
+  $$ = new Cyril();
+  line_no++;
+}
+| KEYWORD expr_list ENDL
+{
+  $$ = cyrilOpFactory($1, $2);
+  line_no++;
+}
+| KEYWORD ENDL
+{
+  $$ = cyrilOpFactory($1, new Cyril());
+  line_no++;
+}
+| LABEL ASSIGN expr ENDL
+{
+  $$ = new CyrilAssign(regFind($1), $3);
+  line_no++;
+}
+| COLOR_VAR ASSIGN expr ENDL
+{
+  $$ = new CyrilAssign(regFind($1), $3);
+  line_no++;
+}
+| DO expr TIMES ENDL statement_list END ENDL
+{
+  $$ = new CyrilDo($2, $5);
+  line_no += 2;
+}
+| FOR LABEL ASSIGN expr TO expr STEP expr ENDL statement_list END ENDL
+{
+  $$ = new CyrilFor(regFind($2), $4, $6, $8, $10);
+  line_no += 2;
+}
+| IF expr statement
+{
+  $$ = new CyrilIf($2, $3);
+}
+| IF expr ENDL statement_list END ENDL
+{
+  $$ = new CyrilIf($2, $4);
+  line_no += 2;
+}
+| WHILE expr DO statement_list END ENDL
+{
+  $$ = new CyrilWhile($2, $4);
+  line_no += 2;
+}
+| PARTICLE expr_list ENDL statement_list END ENDL
+{
+  $$ = new CyrilParticle($2, $4);
+  line_no += 2;
+}
+| PALETTE PALETTE_NAME ENDL palette_list END ENDL
+{
+  int pNum = paletteFind($2);
+  $$ = new CyrilPalette(pNum, $4);
+  line_no += 2;
+}
+| BLINK expr_list ENDL statement_list END ENDL
+{
+  $$ = new CyrilBlink($2, $4);
+  line_no += 2;
+}
+| ANIM anim_list END ENDL
+{
+  $$ = new CyrilAnimation($2);
+  line_no += 2;
+}
+| TILE expr_list ENDL statement_list END ENDL
+{
+  $$ = new CyrilTile($2, $4);
+  line_no += 2;
+}
+| SHAPE ENDL statement_list END ENDL
+{
+  $$ = new CyrilShape($3);
+  line_no += 2;
+}
+| INIT statement
+{
+  $$ = new CyrilInitOp($2);
+  line_no += 1;
+}
+;
+
+
+anim_list:
+NUMBER ENDL statement_list
+{
+  $$ = new CyrilAnimStep($1, $3, new Cyril());
+  line_no++;
+}
+| anim_list NEXT NUMBER ENDL statement_list
+{
+  $$ = new CyrilAnimStep($3, $5, $1);
+  line_no++;
+}
+;
+
+palette_list:
+NUMBER expr_list ENDL
+{
+  $$ = new CyrilPaletteItem($1, $2);
+  line_no++;
+}
+| palette_list NUMBER expr_list ENDL
+{
+  $$ = new CyrilList($1, new CyrilPaletteItem($2, $3));
+  line_no++;
+}
+;
+
+expr_list:
+expr
+{
+  $$ = $1;
+}
+| expr_list COMMA expr
+{
+  $$ = new CyrilList($1, $3);
+}
+;
+
+expr:
+COLOR_NAME
+{
+  $$ = new CyrilNamedColor($1);
+}
+| HEX_COLOR
+{
+  $$ = new CyrilHexColor($1);
+}
+| FUNCTION LEFT expr_list RIGHT
+{
+  $$ = cyrilFunFactory($1, $3);
+}
+| FUNCTION LEFT RIGHT
+{
+  $$ = cyrilFunFactory($1, new Cyril());
+}
+| NUMBER
+{
+  $$ = new CyrilPush($1);
+}
+| COLOR_VAR
+{
+  $$ = new CyrilColorLoad(regFind($1));
+}
+| PALETTE_NAME
+{
+  $$ = new CyrilPush(paletteFind($1));
+}
+| LABEL
+{
+  $$ = new CyrilLoad(regFind($1));
+}
+| expr MINUS expr
+{
+  $$ = new CyrilBinaryOp("-", $1, $3);
+}
+| expr PLUS expr
+{
+  $$ = new CyrilBinaryOp("+", $1, $3);
+}
+| expr MULT expr
+{
+  $$ = new CyrilBinaryOp("*", $1, $3);
+}
+| expr DIV expr
+{
+  $$ = new CyrilBinaryOp("/", $1, $3);
+}
+| expr MOD expr
+{
+  $$ = new CyrilBinaryOp("%", $1, $3);
+}
+| expr EQ expr
+{
+  $$ = new CyrilBinaryOp("==", $1, $3);
+}
+| expr NOTEQ expr
+{
+  $$ = new CyrilBinaryOp("!=", $1, $3);
+}
+| expr GR expr
+{
+  $$ = new CyrilBinaryOp(">", $1, $3);
+}
+| expr GREQ expr
+{
+  $$ = new CyrilBinaryOp(">=", $1, $3);
+}
+| expr LESS expr
+{
+  $$ = new CyrilBinaryOp("<", $1, $3);
+}
+| expr LESSEQ expr
+{
+  $$ = new CyrilBinaryOp("<=", $1, $3);
+}
+| expr AND expr
+{
+  $$ = new CyrilBinaryOp("&", $1, $3);
+}
+| expr OR expr
+{
+  $$ = new CyrilBinaryOp("|", $1, $3);
+}
+| NOT expr
+{
+  $$ = new CyrilUnaryOp("!", $2);
+}
+| LEFT expr RIGHT
+{
+  $$ = $2;
+}
+%%
+
+void yyerror(const char *s) {
+  cout << s << " at line " << (line_no + 1) << endl;
+}
