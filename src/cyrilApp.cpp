@@ -9,7 +9,7 @@ void cyrilApp::setup(){
   
   ofBackground(0);
   pauseProg = false;
-  lightsOn = false;
+  lightsOn = true;
   
   runningProg = false;
   running[0] = false;
