@@ -1,4 +1,6 @@
 bin/*.app
+cyril.xcodeproj/project.xcworkspace/xcshareddata*
+cyril.xcodeproj/project.xcworkspace/xcuserdata/darren.xcuserdatad*
 
 # OS generated files #
 ######################
