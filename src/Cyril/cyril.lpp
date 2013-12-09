@@ -40,9 +40,12 @@ step          { return STEP; }
 until          { return UNTIL; }
 times          { return TIMES; }
 if          { return IF; }
+tan     { yylval.sval = strdup(yytext); return TAN; }
 init          { return INIT; }
 while          { return WHILE; }
 end            { return END; }
+uniform       { return UNIFORM; }
+shader { return SHADER; }
 (\#)([0-9A-Fa-f]{6})       {
                           yylval.sval = strdup(yytext + 1);
                           return HEX_COLOR;
@@ -51,7 +54,7 @@ end            { return END; }
                           yylval.fval = atof(yytext);
                           return NUMBER;
                         }
-fft|lerp|rgb|hsb|hsv|wave|sin|cos|tan|noise|rand|map|pal { yylval.sval = strdup(yytext);
+fft|lerp|rgb|hsb|hsv|wave|sin|cos|noise|rand|map|pal|mouse { yylval.sval = strdup(yytext);
   return FUNCTION;
 }
 vert|img|box|ball|sphere|line|rect|cone|peg|grid|move { yylval.sval = strdup(yytext);
@@ -66,7 +69,7 @@ lightOn|lightOff|lightPosition|lightColor|lightHighlight { yylval.sval = strdup(
 rotate|fill|stroke|push|pushMatrix|pop|popMatrix|scale|fill|noFill { yylval.sval = strdup(yytext);
   return KEYWORD;
 }
-white|gray|black|red|green|blue|cyan|magenta|yellow|aliceBlue|antiqueWhite|aqua|aquamarine|azure|beige|bisque|blanchedAlmond|blueViolet|brown|burlyWood|cadetBlue|chartreuse|chocolate|coral|cornflowerBlue|cornsilk|crimson|darkBlue|darkCyan|darkGoldenRod|darkGray|darkGrey|darkGreen|darkKhaki|darkMagenta|darkOliveGreen|darkorange|darkOrchid|darkRed|darkSalmon|darkSeaGreen|darkSlateBlue|darkSlateGray|darkSlateGrey|darkTurquoise|darkViolet|deepPink|deepSkyBlue|dimGray|dimGrey|dodgerBlue|fireBrick|floralWhite|forestGreen|fuchsia|gainsboro|ghostWhite|gold|goldenRod|grey|greenYellow|honeyDew|hotPink|indianRed|indigo|ivory|khaki|lavender|lavenderBlush|lawnGreen|lemonChiffon|lightBlue|lightCoral|lightCyan|lightGoldenRodYellow|lightGray|lightGrey|lightGreen|lightPink|lightSalmon|lightSeaGreen|lightSkyBlue|lightSlateGray|lightSlateGrey|lightSteelBlue|lightYellow|lime|limeGreen|linen|maroon|mediumAquaMarine|mediumBlue|mediumOrchid|mediumPurple|mediumSeaGreen|mediumSlateBlue|mediumSpringGreen|mediumTurquoise|mediumVioletRed|midnightBlue|mintCream|mistyRose|moccasin|navajoWhite|navy|oldLace|olive|oliveDrab|orange|orangeRed|orchid|paleGoldenRod|paleGreen|paleTurquoise|paleVioletRed|papayaWhip|peachPuff|peru|pink|plum|powderBlue|purple|rosyBrown|royalBlue|saddleBrown|salmon|sandyBrown|seaGreen|seaShell|sienna|silver|skyBlue|slateBlue|slateGray|slateGrey|snow|springGreen|steelBlue|blueSteel|tanC|teal|thistle|tomato|turquoise|violet|wheat|whiteSmoke|yellowGreen { yylval.sval = strdup(yytext);
+white|gray|black|red|green|blue|cyan|magenta|yellow|aliceBlue|antiqueWhite|aqua|aquamarine|azure|beige|bisque|blanchedAlmond|blueViolet|brown|burlyWood|cadetBlue|chartreuse|chocolate|coral|cornflowerBlue|cornsilk|crimson|darkBlue|darkCyan|darkGoldenRod|darkGray|darkGrey|darkGreen|darkKhaki|darkMagenta|darkOliveGreen|darkorange|darkOrchid|darkRed|darkSalmon|darkSeaGreen|darkSlateBlue|darkSlateGray|darkSlateGrey|darkTurquoise|darkViolet|deepPink|deepSkyBlue|dimGray|dimGrey|dodgerBlue|fireBrick|floralWhite|forestGreen|fuchsia|gainsboro|ghostWhite|gold|goldenRod|grey|greenYellow|honeyDew|hotPink|indianRed|indigo|ivory|khaki|lavender|lavenderBlush|lawnGreen|lemonChiffon|lightBlue|lightCoral|lightCyan|lightGoldenRodYellow|lightGray|lightGrey|lightGreen|lightPink|lightSalmon|lightSeaGreen|lightSkyBlue|lightSlateGray|lightSlateGrey|lightSteelBlue|lightYellow|lime|limeGreen|linen|maroon|mediumAquaMarine|mediumBlue|mediumOrchid|mediumPurple|mediumSeaGreen|mediumSlateBlue|mediumSpringGreen|mediumTurquoise|mediumVioletRed|midnightBlue|mintCream|mistyRose|moccasin|navajoWhite|navy|oldLace|olive|oliveDrab|orange|orangeRed|orchid|paleGoldenRod|paleGreen|paleTurquoise|paleVioletRed|papayaWhip|peachPuff|peru|pink|plum|powderBlue|purple|rosyBrown|royalBlue|saddleBrown|salmon|sandyBrown|seaGreen|seaShell|sienna|silver|skyBlue|slateBlue|slateGray|slateGrey|snow|springGreen|steelBlue|blueSteel|teal|thistle|tomato|turquoise|violet|wheat|whiteSmoke|yellowGreen { yylval.sval = strdup(yytext);
   return COLOR_NAME;
 }
 \$[a-zA-Z0-9_]+ { yylval.sval = strdup(yytext);

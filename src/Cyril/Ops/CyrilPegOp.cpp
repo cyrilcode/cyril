@@ -7,6 +7,7 @@
 //
 
 #include "CyrilPegOp.h"
+#include "CyrilState.h"
 
 CyrilPegOp::CyrilPegOp (Cyril* _c) : CyrilOp(_c) {
   int s = c->size();

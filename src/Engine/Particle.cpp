@@ -9,7 +9,7 @@
 #include "Particle.h"
 
 Particle::~Particle() {
-  delete shape;
+  //delete shape;
 }
 
 void Particle::draw(CyrilState * _s) {

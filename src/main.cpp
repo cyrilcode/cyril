@@ -1,14 +1,15 @@
-//#define OS_PRE_DATA_PATH "data/"
-//#define OS_POST_DATA_PATH "../../../data/"
-
 #include "ofMain.h"
 #include "cyrilApp.h"
 
 map < string, ofColor > colorNameMap;
 
+
 int main( ){
-  ofSetDataPathRoot("../Resources/data");
+  ofSetLogLevel(OF_LOG_ERROR);
   
+  // When packaged for release move data/ into Resources folder
+  //ofSetDataPathRoot("../Resources/data");
+
   colorNameMap["white"] = ofColor::white;
   colorNameMap["gray"] = ofColor::gray;
   colorNameMap["black"] = ofColor::black;
@@ -157,9 +158,7 @@ int main( ){
   colorNameMap["whiteSmoke"] = ofColor::whiteSmoke;
   colorNameMap["yellowGreen"] = ofColor::yellowGreen;
   
-  int X_MAX = 640;
-  int Y_MAX = 480;
-  ofSetupOpenGL(X_MAX, Y_MAX, OF_WINDOW);
+  ofSetupOpenGL(640, 480, OF_WINDOW);
   
 	ofRunApp(new cyrilApp());
 }

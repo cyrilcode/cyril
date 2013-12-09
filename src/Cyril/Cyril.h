@@ -11,8 +11,8 @@
 
 #include "ofMain.h"
 #include "cmds.h"
-#include "CyrilState.h"
-
+//#include "CyrilState.h"
+class CyrilState;
 class Particle;
 
 void yyerror(const char *);

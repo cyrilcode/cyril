@@ -7,6 +7,7 @@
 //
 
 #include "CyrilBackgroundOp.h"
+#include "CyrilState.h"
 
 CyrilBackgroundOp::CyrilBackgroundOp (Cyril* _c) : CyrilOp(_c) {
   int s = c->size();
@@ -42,8 +43,14 @@ void CyrilBackgroundOp::eval(CyrilState &_s) {
     b = _s.stk->top(); _s.stk->pop();
     g = _s.stk->top(); _s.stk->pop();
     r = _s.stk->top(); _s.stk->pop();
-    //ofBackground(r, g, b);
+    //ofBackground(r, g, b, a);
     ofClear(r, g, b, a);
+    //cout << "Background " << r << "," << g <<  "," << b <<  "," << a << endl;
+    //ofPushStyle();
+    //ofSetColor(r, g, b, a);
+    //ofRect(-(*_s.sym)[REG_X_MID], -(*_s.sym)[REG_Y_MID], (*_s.sym)[REG_X_MAX], (*_s.sym)[REG_Y_MAX]);
+    //ofPopStyle();
+    
     return;
   }
   if (c->size() == 3) {

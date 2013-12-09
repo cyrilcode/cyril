@@ -7,6 +7,7 @@
 //
 
 #include "CyrilPalette.h"
+#include "CyrilState.h"
 
 CyrilPalette::CyrilPalette(int _l, Cyril* _p) : loc(_l) {
   int sz = _p->size();

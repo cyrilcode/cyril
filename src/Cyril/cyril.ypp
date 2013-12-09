@@ -4,6 +4,7 @@
 #include "ofMain.h"
 #include "cmds.h"
 #include "Cyril.h"
+#include "CyrilProg.h"
 #include "CyrilList.h"
 #include "CyrilAssign.h"
 #include "CyrilPush.h"
@@ -22,6 +23,7 @@
 #include "CyrilPaletteItem.h"
 #include "CyrilBlink.h"
 #include "CyrilTile.h"
+#include "CyrilShaderOp.h"
 
 #include "CyrilOp.h"
 #include "CyrilBoxOp.h"
@@ -47,6 +49,7 @@
 #include "CyrilFillOp.h"
 #include "CyrilNoFillOp.h"
 #include "CyrilInitOp.h"
+#include "CyrilUniformOp.h"
 
 #include "CyrilAnimation.h"
 #include "CyrilAnimStep.h"
@@ -65,6 +68,7 @@
 #include "CyrilLerpFun.h"
 #include "CyrilPaletteFun.h"
 #include "CyrilFftFun.h"
+#include "CyrilMouseFun.h"
 
 using namespace std;
 
@@ -113,6 +117,11 @@ int regFind(string _s) {
   if ("SNARE" == _s) return REG_BEAT_SNARE;
   if ("HIHAT" == _s) return REG_BEAT_HIHAT;
   if ("VOL" == _s) return REG_BEAT_MAGNITUDE;
+  if ("XMOUSE" == _s) return REG_MOUSE_X;
+  if ("YMOUSE" == _s) return REG_MOUSE_Y;
+  if ("CLICK" == _s) return REG_MOUSE_ON;
+  if ("XMAX" == _s) return REG_X_MAX;
+  if ("YMAX" == _s) return REG_Y_MAX;
   
   if (symTab.find(_s) == symTab.end()) {
     int loc = symTab.size() + REG_COUNT;
@@ -164,6 +173,7 @@ Cyril * cyrilFunFactory(const char * _s, Cyril * _c) {
   if (strncmp("lerp", _s, 4) == 0) return new CyrilLerpFun(_c);
   if (strncmp("pal", _s, 3) == 0) return new CyrilPaletteFun(_c);
   if (strncmp("fft", _s, 3) == 0) return new CyrilFftFun(_c);
+  if (strncmp("mouse", _s, 5) == 0) return new CyrilMouseFun(_c);
   return new CyrilFun(_c);
 }
 
@@ -176,9 +186,9 @@ Cyril * cyrilFunFactory(const char * _s, Cyril * _c) {
 }
 
 %token ENDL COMMA LEFT RIGHT ASSIGN DO TIMES END UNTIL IF WHILE INIT
-%token FOR TO STEP PARTICLE PALETTE BLINK ANIM NEXT TILE SHAPE
+%token FOR TO STEP PARTICLE PALETTE BLINK ANIM NEXT TILE SHAPE UNIFORM SHADER
 %token PLUS MINUS MOD MULT DIV EQ LESS LESSEQ GR GREQ NOTEQ NOT AND OR
-%token <sval> HEX_COLOR LABEL KEYWORD FUNCTION COLOR_VAR PALETTE_NAME COLOR_NAME
+%token <sval> HEX_COLOR LABEL KEYWORD FUNCTION COLOR_VAR PALETTE_NAME COLOR_NAME TAN
 %token <fval> NUMBER
 
 %left MULT PLUS MINUS DIV MOD EQ NOTEQ LESSEQ LESS GREQ GR
@@ -190,7 +200,7 @@ Cyril * cyrilFunFactory(const char * _s, Cyril * _c) {
 %%
 
 cyril: statement_list {
-  pRoot = $1;
+  pRoot = new CyrilProg($1);
 }
 
 statement_list:
@@ -283,13 +293,28 @@ ENDL
 }
 | SHAPE ENDL statement_list END ENDL
 {
-  $$ = new CyrilShape($3);
+  $$ = new CyrilShape("odd", $3);
+  line_no += 2;
+}
+| SHAPE LABEL ENDL statement_list END ENDL
+{
+  $$ = new CyrilShape($2, $4);
   line_no += 2;
 }
 | INIT statement
 {
   $$ = new CyrilInitOp($2);
   line_no += 1;
+}
+| UNIFORM LABEL ASSIGN expr_list ENDL
+{
+  $$ = new CyrilUniformOp($2, $4);
+  line_no += 1;
+}
+| SHADER NUMBER ENDL statement_list END ENDL
+{
+  $$ = new CyrilShaderOp($2, $4);
+  line_no += 2;
 }
 ;
 
@@ -332,13 +357,21 @@ expr
 ;
 
 expr:
-COLOR_NAME
+TAN
+{
+  $$ = new CyrilNamedColor($1);
+}
+| COLOR_NAME
 {
   $$ = new CyrilNamedColor($1);
 }
 | HEX_COLOR
 {
   $$ = new CyrilHexColor($1);
+}
+| TAN LEFT expr_list RIGHT
+{
+  $$ = cyrilFunFactory($1, $3);
 }
 | FUNCTION LEFT expr_list RIGHT
 {
@@ -427,5 +460,5 @@ COLOR_NAME
 %%
 
 void yyerror(const char *s) {
-  cout << s << " at line " << (line_no + 1) << endl;
+  cout << "[error] " << s << " at line " << (line_no + 1) << endl;
 }

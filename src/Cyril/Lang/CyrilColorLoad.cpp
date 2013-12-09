@@ -7,6 +7,7 @@
 //
 
 #include "CyrilColorLoad.h"
+#include "CyrilState.h"
 
 
 CyrilColorLoad::CyrilColorLoad(int _i) : loc(_i) {

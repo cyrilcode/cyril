@@ -20,11 +20,13 @@ Cyril* CyrilParser::parseString(string progStr) {
     cout << "Compile OK" << endl;
 #endif
     if (pRoot->matchPushPop() != 0) {
-      cout << "Unmatched push and pop matrix" << endl;
+      //ofLog(OF_LOG_NOTICE, "Unmatched push and pop matrix");
+      cout << "[error] Unmatched push and pop matrix" << endl;
       pRoot->valid = false;
     }
   }
   else {
+    cout << "[error] Compile error" << endl;
     pRoot = new Cyril();
     pRoot->valid = false;
   }
@@ -33,6 +35,12 @@ Cyril* CyrilParser::parseString(string progStr) {
 }
 
 Cyril* CyrilParser::parseFile(string fileName) {
+  ofFile file;
+  // open file, read only, not binary
+  file.open(ofToDataPath(fileName), ofFile::ReadOnly, false);
+  ofBuffer buf = file.readToBuffer();
+  return CyrilParser::parseString(buf.getText());
+  /*
   //Cyril * pAST;
   int res = 0;
   FILE *fp=fopen(ofToDataPath(fileName).c_str(),"r");
@@ -57,4 +65,5 @@ Cyril* CyrilParser::parseFile(string fileName) {
     }
   }
   return pRoot;
+  */
 }

@@ -10,6 +10,7 @@
 #define cyril2_CyrilAssign_h
 
 #include "cmds.h"
+#include "CyrilState.h"
 
 class CyrilAssign : public Cyril {
   int loc;

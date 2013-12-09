@@ -7,6 +7,7 @@
 //
 
 #include "CyrilAnimStep.h"
+#include "CyrilState.h"
 
 CyrilAnimStep::CyrilAnimStep (float _n, Cyril* _e1, Cyril* _e2) : n(_n), e1(_e1), e2(_e2) {
   

@@ -7,6 +7,7 @@
 //
 
 #include "CyrilNoFillOp.h"
+#include "CyrilState.h"
 
 CyrilNoFillOp::CyrilNoFillOp (Cyril* _c) : CyrilOp(_c) {
   int s = c->size();

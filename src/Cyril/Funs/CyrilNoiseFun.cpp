@@ -7,6 +7,7 @@
 //
 
 #include "CyrilNoiseFun.h"
+#include "CyrilState.h"
 
 CyrilNoiseFun::CyrilNoiseFun(Cyril* _c) : CyrilFun(_c) {
   int s = c->size();

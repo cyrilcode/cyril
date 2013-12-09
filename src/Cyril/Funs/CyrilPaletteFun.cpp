@@ -7,6 +7,7 @@
 //
 
 #include "CyrilPaletteFun.h"
+#include "CyrilState.h"
 
 CyrilPaletteFun::CyrilPaletteFun(Cyril * _c) : CyrilFun(_c) {
   int s = _c->size();

@@ -7,6 +7,7 @@
 //
 
 #include "CyrilLightOp.h"
+#include "CyrilState.h"
 
 CyrilLightOp::CyrilLightOp (Cyril* _c) : CyrilOp(_c) {
   int s = c->size();

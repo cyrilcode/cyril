@@ -7,6 +7,7 @@
 //
 
 #include "CyrilAnimation.h"
+#include "CyrilState.h"
 
 CyrilAnimation::CyrilAnimation (Cyril* _e) : e(_e) {
 

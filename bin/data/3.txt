@@ -1,0 +1,13 @@
+
+rotate TIME / 10
+DECAY: 0.001
+blink 1,25
+ do 8 times
+  particle noise(TIME/10000) * 0.000125,0,0,0.000125
+   rotate HEALTH * 360,1,1,0
+   color white,HEALTH * 255
+   box 0.5,2,0.1
+  end
+  rotate 45
+ end
+end

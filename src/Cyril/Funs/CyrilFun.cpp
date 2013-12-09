@@ -7,6 +7,7 @@
 //
 
 #include "CyrilFun.h"
+#include "CyrilState.h"
 
 CyrilFun::CyrilFun(Cyril* _c) : c(_c) {
 }

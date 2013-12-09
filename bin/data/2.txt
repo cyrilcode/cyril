@@ -1,0 +1,6 @@
+move -2,0,0
+box KICK
+move 2,0,0
+box SNARE
+move 2,0,0
+box HIHAT

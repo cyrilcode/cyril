@@ -83,6 +83,15 @@
 		9512D4EE183D1F110078256D /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9512D4B7183D1F110078256D /* Particle.cpp */; };
 		9512D4F3183D23CA0078256D /* cyril-logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9512D4EF183D227A0078256D /* cyril-logo.icns */; };
 		9512D4F5183D23F70078256D /* DroidSansMono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9512D4F4183D23F70078256D /* DroidSansMono.ttf */; };
+		953C0B7918475D330053BD36 /* CyrilProg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 953C0B7718475D330053BD36 /* CyrilProg.cpp */; };
+		953C0B7C184761900053BD36 /* EditorEvaluator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 953C0B7A184761900053BD36 /* EditorEvaluator.cpp */; };
+		953C0B7F184768200053BD36 /* CyrilEvaluator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 953C0B7D184768200053BD36 /* CyrilEvaluator.cpp */; };
+		953C0B82184773BA0053BD36 /* CyrilShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 953C0B80184773BA0053BD36 /* CyrilShader.cpp */; };
+		953C0B851847841A0053BD36 /* CyrilUniformOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 953C0B831847841A0053BD36 /* CyrilUniformOp.cpp */; };
+		953C0B88184789FD0053BD36 /* CyrilShaderOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 953C0B86184789FD0053BD36 /* CyrilShaderOp.cpp */; };
+		953C0B8C18479D200053BD36 /* CyrilMouseFun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 953C0B8A18479D200053BD36 /* CyrilMouseFun.cpp */; };
+		953C0B8F1847ACCF0053BD36 /* ShaderEvaluator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 953C0B8D1847ACCF0053BD36 /* ShaderEvaluator.cpp */; };
+		953C0C8D184937230053BD36 /* CyrilShell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 953C0C8B184937230053BD36 /* CyrilShell.cpp */; };
 		9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 832BDC407620CDBA568B713D /* tinyxmlerror.cpp */; };
 		A29D8C96AE042ECEAA1BD4F3 /* NetworkingUtilsWin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B1FAD3F30C8065C396ACB /* NetworkingUtilsWin.cpp */; };
 		A86D7323CE1A9450906A91DD /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B85440CFD1540D81C05B85CB /* fft.cpp */; };
@@ -306,6 +315,24 @@
 		9512D4B8183D1F110078256D /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		9512D4EF183D227A0078256D /* cyril-logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "cyril-logo.icns"; sourceTree = "<group>"; };
 		9512D4F4183D23F70078256D /* DroidSansMono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DroidSansMono.ttf; sourceTree = "<group>"; };
+		953C0B7718475D330053BD36 /* CyrilProg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilProg.cpp; sourceTree = "<group>"; };
+		953C0B7818475D330053BD36 /* CyrilProg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilProg.h; sourceTree = "<group>"; };
+		953C0B7A184761900053BD36 /* EditorEvaluator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EditorEvaluator.cpp; sourceTree = "<group>"; };
+		953C0B7B184761900053BD36 /* EditorEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorEvaluator.h; sourceTree = "<group>"; };
+		953C0B7D184768200053BD36 /* CyrilEvaluator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilEvaluator.cpp; sourceTree = "<group>"; };
+		953C0B7E184768200053BD36 /* CyrilEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilEvaluator.h; sourceTree = "<group>"; };
+		953C0B80184773BA0053BD36 /* CyrilShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilShader.cpp; sourceTree = "<group>"; };
+		953C0B81184773BA0053BD36 /* CyrilShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilShader.h; sourceTree = "<group>"; };
+		953C0B831847841A0053BD36 /* CyrilUniformOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilUniformOp.cpp; sourceTree = "<group>"; };
+		953C0B841847841A0053BD36 /* CyrilUniformOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilUniformOp.h; sourceTree = "<group>"; };
+		953C0B86184789FD0053BD36 /* CyrilShaderOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilShaderOp.cpp; sourceTree = "<group>"; };
+		953C0B87184789FD0053BD36 /* CyrilShaderOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilShaderOp.h; sourceTree = "<group>"; };
+		953C0B8A18479D200053BD36 /* CyrilMouseFun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilMouseFun.cpp; sourceTree = "<group>"; };
+		953C0B8B18479D200053BD36 /* CyrilMouseFun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilMouseFun.h; sourceTree = "<group>"; };
+		953C0B8D1847ACCF0053BD36 /* ShaderEvaluator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderEvaluator.cpp; sourceTree = "<group>"; };
+		953C0B8E1847ACCF0053BD36 /* ShaderEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderEvaluator.h; sourceTree = "<group>"; };
+		953C0C8B184937230053BD36 /* CyrilShell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilShell.cpp; sourceTree = "<group>"; };
+		953C0C8C184937230053BD36 /* CyrilShell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilShell.h; sourceTree = "<group>"; };
 		9604B925D32EE39065747725 /* ofxBaseGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBaseGui.cpp; path = ../../../addons/ofxGui/src/ofxBaseGui.cpp; sourceTree = SOURCE_ROOT; };
 		9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscReceivedElements.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.cpp; sourceTree = SOURCE_ROOT; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
@@ -467,6 +494,8 @@
 				8FD00523D49FCA9F566F320B /* EditorBuffer.h */,
 				15506D31F838751547E6C172 /* ofxEditor.cpp */,
 				270DBEB1F97702E1AB23CD28 /* ofxEditor.h */,
+				953C0B7A184761900053BD36 /* EditorEvaluator.cpp */,
+				953C0B7B184761900053BD36 /* EditorEvaluator.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -520,9 +549,17 @@
 				9512D446183D1F100078256D /* CyrilParser.h */,
 				9512D447183D1F100078256D /* CyrilState.cpp */,
 				9512D448183D1F100078256D /* CyrilState.h */,
+				953C0B7718475D330053BD36 /* CyrilProg.cpp */,
+				953C0B7818475D330053BD36 /* CyrilProg.h */,
 				9512D449183D1F100078256D /* Funs */,
 				9512D462183D1F100078256D /* Lang */,
 				9512D472183D1F100078256D /* Ops */,
+				953C0B7D184768200053BD36 /* CyrilEvaluator.cpp */,
+				953C0B7E184768200053BD36 /* CyrilEvaluator.h */,
+				953C0B80184773BA0053BD36 /* CyrilShader.cpp */,
+				953C0B81184773BA0053BD36 /* CyrilShader.h */,
+				953C0C8B184937230053BD36 /* CyrilShell.cpp */,
+				953C0C8C184937230053BD36 /* CyrilShell.h */,
 			);
 			path = Cyril;
 			sourceTree = "<group>";
@@ -554,6 +591,8 @@
 				9512D45F183D1F100078256D /* CyrilTanFun.h */,
 				9512D460183D1F100078256D /* CyrilWaveFun.cpp */,
 				9512D461183D1F100078256D /* CyrilWaveFun.h */,
+				953C0B8A18479D200053BD36 /* CyrilMouseFun.cpp */,
+				953C0B8B18479D200053BD36 /* CyrilMouseFun.h */,
 			);
 			path = Funs;
 			sourceTree = "<group>";
@@ -646,6 +685,10 @@
 				9512D4AF183D1F100078256D /* CyrilSphereOp.h */,
 				9512D4B0183D1F110078256D /* CyrilTile.cpp */,
 				9512D4B1183D1F110078256D /* CyrilTile.h */,
+				953C0B831847841A0053BD36 /* CyrilUniformOp.cpp */,
+				953C0B841847841A0053BD36 /* CyrilUniformOp.h */,
+				953C0B86184789FD0053BD36 /* CyrilShaderOp.cpp */,
+				953C0B87184789FD0053BD36 /* CyrilShaderOp.h */,
 			);
 			path = Ops;
 			sourceTree = "<group>";
@@ -808,11 +851,13 @@
 			isa = PBXGroup;
 			children = (
 				9512D43D183D1F100078256D /* cmds.h */,
-				9512D43E183D1F100078256D /* Cyril */,
+				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				9512D4B2183D1F110078256D /* cyrilApp.cpp */,
 				9512D4B3183D1F110078256D /* cyrilApp.h */,
+				9512D43E183D1F100078256D /* Cyril */,
 				9512D4B4183D1F110078256D /* Engine */,
-				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				953C0B8D1847ACCF0053BD36 /* ShaderEvaluator.cpp */,
+				953C0B8E1847ACCF0053BD36 /* ShaderEvaluator.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -952,6 +997,7 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				9512D4E0183D1F110078256D /* CyrilParticle.cpp in Sources */,
+				953C0C8D184937230053BD36 /* CyrilShell.cpp in Sources */,
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
 				9512D4CE183D1F110078256D /* CyrilAnimStep.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
@@ -976,11 +1022,14 @@
 				9512D4DD183D1F110078256D /* CyrilNoFillOp.cpp in Sources */,
 				9512D4BF183D1F110078256D /* CyrilCosFun.cpp in Sources */,
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
+				953C0B8F1847ACCF0053BD36 /* ShaderEvaluator.cpp in Sources */,
 				9512D4B9183D1F110078256D /* Cyril.cpp in Sources */,
 				9512D4D2183D1F110078256D /* CyrilBlink.cpp in Sources */,
 				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
 				9512D4E9183D1F110078256D /* CyrilSphereDetailOp.cpp in Sources */,
+				953C0B7C184761900053BD36 /* EditorEvaluator.cpp in Sources */,
 				4ADB88E2FB52E76A471065DE /* ofxOscParameterSync.cpp in Sources */,
+				953C0B8C18479D200053BD36 /* CyrilMouseFun.cpp in Sources */,
 				640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */,
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
 				9512D4E5183D1F110078256D /* CyrilRotateOp.cpp in Sources */,
@@ -990,6 +1039,7 @@
 				9512D4C6183D1F110078256D /* CyrilPaletteFun.cpp in Sources */,
 				9512D4DF183D1F110078256D /* CyrilPaletteItem.cpp in Sources */,
 				9512D4D1183D1F110078256D /* CyrilBallOp.cpp in Sources */,
+				953C0B7918475D330053BD36 /* CyrilProg.cpp in Sources */,
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
 				9512D4D8183D1F110078256D /* CyrilImgOp.cpp in Sources */,
 				9512D4CD183D1F110078256D /* CyrilAnimation.cpp in Sources */,
@@ -1006,6 +1056,7 @@
 				A29D8C96AE042ECEAA1BD4F3 /* NetworkingUtilsWin.cpp in Sources */,
 				28090DEB5109115003E8F1C5 /* UdpSocketWin.cpp in Sources */,
 				9512D4E8183D1F110078256D /* CyrilShapeList.cpp in Sources */,
+				953C0B82184773BA0053BD36 /* CyrilShader.cpp in Sources */,
 				9512D4E1183D1F110078256D /* CyrilPegOp.cpp in Sources */,
 				9512D4E7183D1F110078256D /* CyrilShape.cpp in Sources */,
 				9512D4EC183D1F110078256D /* cyrilApp.cpp in Sources */,
@@ -1018,6 +1069,7 @@
 				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
 				63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */,
 				933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */,
+				953C0B7F184768200053BD36 /* CyrilEvaluator.cpp in Sources */,
 				9512D4D5183D1F110078256D /* CyrilConeOp.cpp in Sources */,
 				9512D4CB183D1F110078256D /* CyrilColorLoad.cpp in Sources */,
 				9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */,
@@ -1025,8 +1077,10 @@
 				5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */,
 				9512D4DE183D1F110078256D /* CyrilPalette.cpp in Sources */,
 				A86D7323CE1A9450906A91DD /* fft.cpp in Sources */,
+				953C0B851847841A0053BD36 /* CyrilUniformOp.cpp in Sources */,
 				9512D4EE183D1F110078256D /* Particle.cpp in Sources */,
 				C098DBE008A1B5C6D12ABFFD /* ofxBeat.cpp in Sources */,
+				953C0B88184789FD0053BD36 /* CyrilShaderOp.cpp in Sources */,
 				9512D4BE183D1F110078256D /* CyrilState.cpp in Sources */,
 				9512D4BB183D1F110078256D /* cyril.ypp in Sources */,
 				9512D4C0183D1F110078256D /* CyrilFftFun.cpp in Sources */,
@@ -1162,74 +1216,30 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					../../../addons/ofxGui/libs,
+					../../../addons/ofxGui/src,
+					../../../addons/ofxOsc/libs,
+					../../../addons/ofxOsc/libs/oscpack,
+					../../../addons/ofxOsc/libs/oscpack/src,
+					../../../addons/ofxOsc/libs/oscpack/src/ip,
+					../../../addons/ofxOsc/libs/oscpack/src/ip/posix,
+					../../../addons/ofxOsc/libs/oscpack/src/ip/win32,
+					../../../addons/ofxOsc/libs/oscpack/src/osc,
+					../../../addons/ofxOsc/src,
+					../../../addons/ofxXmlSettings/libs,
+					../../../addons/ofxXmlSettings/src,
+					../../../addons/ofxBeat/libs,
+					../../../addons/ofxBeat/src,
+					../../../addons/ofxEditor/libs/ftgl/src,
+					../../../addons/ofxEditor/src,
+				);
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_12)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_13)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_15)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_12)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_13)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_16)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_17)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_18)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_19)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_20)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_21)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_22)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_23)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_24)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_25)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_26)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_27)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_28)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_29)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_30)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_31)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_32)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_33)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_34)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_35)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_36)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_37)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_38)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_39)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_40)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_41)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_42)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_43)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_44)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_45)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_46)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_47)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_48)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_49)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
-				);
+				LIBRARY_SEARCH_PATHS = ../../../addons/ofxEditor/libs/ftgl/src;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1247,74 +1257,30 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					../../../addons/ofxGui/libs,
+					../../../addons/ofxGui/src,
+					../../../addons/ofxOsc/libs,
+					../../../addons/ofxOsc/libs/oscpack,
+					../../../addons/ofxOsc/libs/oscpack/src,
+					../../../addons/ofxOsc/libs/oscpack/src/ip,
+					../../../addons/ofxOsc/libs/oscpack/src/ip/posix,
+					../../../addons/ofxOsc/libs/oscpack/src/ip/win32,
+					../../../addons/ofxOsc/libs/oscpack/src/osc,
+					../../../addons/ofxOsc/src,
+					../../../addons/ofxXmlSettings/libs,
+					../../../addons/ofxXmlSettings/src,
+					../../../addons/ofxBeat/libs,
+					../../../addons/ofxBeat/src,
+					../../../addons/ofxEditor/libs/ftgl/src,
+					../../../addons/ofxEditor/src,
+				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_12)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_13)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_15)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_9)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_11)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_12)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_13)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_16)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_17)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_18)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_19)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_20)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_21)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_22)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_23)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_24)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_25)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_26)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_27)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_28)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_29)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_30)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_31)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_32)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_33)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_34)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_35)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_36)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_37)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_38)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_39)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_40)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_41)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_42)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_43)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_44)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_45)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_46)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_47)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_48)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_49)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
-				);
+				LIBRARY_SEARCH_PATHS = ../../../addons/ofxEditor/libs/ftgl/src;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

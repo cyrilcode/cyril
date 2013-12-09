@@ -1,0 +1,26 @@
+stroke 2
+scale 0.7
+color lime
+move 0,2,0
+rotate 70,1,0,0
+//rotate wave(2000) * 90,0,0,1
+//move wave(1000),0,0
+i: SECS / 10
+for x: -20 to 21 step 0.5
+ color lerp(lime, yellow, (x + 20) / 40)
+ shape 
+  for y: -20 to 21 step 1
+   n: noise(x * 0.1,y * 0.1 + i,i) * 2
+   vert x,y,n
+  end 
+ end
+end
+for y: -20 to 21 step 1
+color lerp(lime, yellow, (y + 20) / 40)  
+shape 
+  for x: -20 to 21 step 0.5
+   n: noise(x * 0.1,y * 0.1 + i,i) * 2
+   vert x,y,n
+  end 
+ end
+end

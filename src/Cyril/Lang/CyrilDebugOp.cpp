@@ -7,6 +7,7 @@
 //
 
 #include "CyrilDebugOp.h"
+#include "CyrilState.h"
 
 CyrilDebugOp::CyrilDebugOp (Cyril* _c) : CyrilOp(_c) {
 

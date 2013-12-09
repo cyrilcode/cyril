@@ -7,6 +7,7 @@
 //
 
 #include "CyrilGridOp.h"
+#include "CyrilState.h"
 
 CyrilGridOp::CyrilGridOp (Cyril* _c) : CyrilOp(_c) {
   int s = c->size();

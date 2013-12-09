@@ -10,12 +10,28 @@
 #define __cyril2__CyrilState__
 
 #include "ofMain.h"
+#include "cmds.h"
+#include "EditorBuffer.h"
+#include "ofxBeat.h"
+
+#include "CyrilShader.h"
+//class CyrilShader;
 
 class Particle;
 class Palette;
 
-class CyrilState {
+class CyrilState : public EditorState {
 public:
+  void init();
+  void setDefaults();
+  void update(bool _reset, ofxBeat &beat);
+  void resize(int w, int h);
+  void lightsOn();
+  void lightsOff();
+  
+  void printState();
+  void printShaders();
+  
   map<int, float> * sym;
   stack<float> * stk;
   ofMatrixStack * ms;
@@ -24,6 +40,7 @@ public:
   map<int, ofImage*> * img;
   CyrilState * parent;
   ofLight * light;
+  map<int, CyrilShader*> * shaders;
   
   CyrilState(map<int, float> * _t,
              stack<float> * _s, ofMatrixStack * _m, vector<Particle*> * _p,
@@ -33,6 +50,7 @@ public:
   //CyrilState (const CyrilState &other);
   //CyrilState *clone ();
   
+  void evaluateShaderUniforms(CyrilState *_global);
 };
 
 #endif /* defined(__cyril2__CyrilState__) */

@@ -7,6 +7,7 @@
 //
 
 #include "CyrilSphereOp.h"
+#include "CyrilState.h"
 
 CyrilSphereOp::CyrilSphereOp (Cyril* _c) : CyrilOp(_c) {
   int s = c->size();
