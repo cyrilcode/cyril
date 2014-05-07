@@ -266,12 +266,16 @@ void cyrilApp::toggleLights(void * _o) {
 }
 void cyrilApp::loadFile(void * _o) {
   int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
+  ofSetDataPathRoot("../../../");
 	((cyrilApp *)_o)->editor.loadFile(ofToString(whichEditor)+".txt", whichEditor);
+  ofSetDataPathRoot("../Resources/data");
   ((cyrilApp *)_o)->editor.update();
 }
 void cyrilApp::saveFile(void * _o) {
   int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
-	((cyrilApp *)_o)->editor.saveFile(ofToString(whichEditor)+".txt", whichEditor);
+  ofSetDataPathRoot("../../../");
+  ((cyrilApp *)_o)->editor.saveFile(ofToString(whichEditor)+".txt", whichEditor);
+  ofSetDataPathRoot("../Resources/data");
 }
 void cyrilApp::resetTimers(void * _o) {
   ((cyrilApp *)_o)->doResetTimers = true;
