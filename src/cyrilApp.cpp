@@ -216,7 +216,7 @@ void cyrilApp::draw(){
   	editor.draw();
     ofPushMatrix();
     ofPushStyle();
-    ofTranslate(X_MID - 45, 10);
+    ofTranslate(X_MID - 50, 10);
     for (int i = 0; i < 10; ++i) {
       if (error[i]) {
         ofSetColor(255,0,0);
