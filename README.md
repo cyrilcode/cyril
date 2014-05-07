@@ -8,7 +8,7 @@ Full information on the website:
 
 ## Requirements
 
-Cyril is built against version 0.8.0 of openFrameworks
+Cyril is built against version 0.8.1 of openFrameworks
 
  * http://www.openframeworks.cc/download/
 
