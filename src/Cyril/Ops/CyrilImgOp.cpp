@@ -39,6 +39,7 @@ void CyrilImgOp::eval(CyrilState &_s) {
   i = _s.stk->top(); _s.stk->pop();
   ofScale(0.01, 0.01, 0.01);
   if (_s.img->count(i)) {
+    //cout << "Draw image " << _s.img->at(i) << endl;
     _s.img->at(i)->draw(0, 0, 0);
   }
   // TODO: recurse up the parent tree

@@ -45,6 +45,7 @@ class cyrilApp : public ofBaseApp{
   int lastSignalReport;
   
   DirectoryWatcherManager codeWatcher;
+  DirectoryWatcherManager spriteWatcher;
   HiddenFileFilter fileFilter;
   
 public:
@@ -69,6 +70,8 @@ public:
   void runProgram();
   
   void audioReceived(float*, int, int);
+  
+  void reloadFileBuffer(std::string);
   
   // Editor command callbacks 
   static void toggleFullscreen(void *);

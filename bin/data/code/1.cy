@@ -1,7 +1,8 @@
 //rotate
 move
 rotate
-color red
+color cyan
 box
 move
 rotate
+box
