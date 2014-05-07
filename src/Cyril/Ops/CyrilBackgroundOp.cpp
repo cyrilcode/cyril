@@ -42,7 +42,7 @@ void CyrilBackgroundOp::eval(CyrilState &_s) {
     b = _s.stk->top(); _s.stk->pop();
     g = _s.stk->top(); _s.stk->pop();
     r = _s.stk->top(); _s.stk->pop();
-    //ofBackground(r, g, b);
+    //ofBackground(r, g, b, a);
     ofClear(r, g, b, a);
     return;
   }

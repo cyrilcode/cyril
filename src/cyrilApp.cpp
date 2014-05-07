@@ -127,6 +127,10 @@ void cyrilApp::setup(){
   ofClear(0,0,0,0);
   edBuf.end();
   
+  ofEnableAlphaBlending();
+  ofEnableAntiAliasing();
+  ofEnableSmoothing();
+  
   isFullScreen = true;
   ofSetFullscreen(true);
 }
@@ -342,6 +346,8 @@ void cyrilApp::reloadFileBuffer(std::string filePath) {
     //cout << "Loading image " << file.getFileName() << endl;
     int whichImg = ofToInt(removeExtension(file.getFileName()));
     (*_state.img)[whichImg] = new ofImage(filePath);
+    //cout << "Loaded image type = " << ((*_state.img)[whichImg]->type) << endl;
+    //(*_state.img)[whichImg]->setImageType(OF_IMAGE_COLOR_ALPHA);
     (*_state.img)[whichImg]->setAnchorPercent(0.5, 0.5);
   }
 }
