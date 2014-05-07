@@ -16,4 +16,4 @@ It also depends on two (non-core) ofx Addons:
 
  * https://github.com/darrenmothersele/ofxBeat
  * https://github.com/darrenmothersele/ofxEditor
-
+ * https://github.com/bakercp/ofxIO
