@@ -7,7 +7,6 @@
 //
 
 #include "CyrilRotateOp.h"
-#include "CyrilState.h"
 
 CyrilRotateOp::CyrilRotateOp (Cyril* _c) : CyrilOp(_c) {
   int s = c->size();

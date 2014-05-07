@@ -7,7 +7,6 @@
 //
 
 #include "CyrilTile.h"
-#include "CyrilState.h"
 
 CyrilTile::CyrilTile (Cyril* _e, Cyril* _c) : e(_e), c(_c) {
   int s = e->size();

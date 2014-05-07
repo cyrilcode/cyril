@@ -7,7 +7,6 @@
 //
 
 #include "CyrilPushMatrixOp.h"
-#include "CyrilState.h"
 
 CyrilPushMatrixOp::CyrilPushMatrixOp (Cyril* _c) : CyrilOp(_c) {
   if (_c->size() != 0) {

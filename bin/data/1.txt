@@ -1,4 +1,0 @@
-rotate noise(1,TIME / 5000) * 360
-particle noise(TIME / 1000) * 0.5
- box 0.1
-end

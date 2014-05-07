@@ -7,7 +7,6 @@
 //
 
 #include "CyrilBallOp.h"
-#include "CyrilState.h"
 
 CyrilBallOp::CyrilBallOp (Cyril* _c) : CyrilOp(_c) {
   int s = c->size();

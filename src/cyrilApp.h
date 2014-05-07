@@ -5,18 +5,14 @@
 #include "ofxXmlSettings.h"
 #include "Particle.h"
 #include "CyrilParser.h"
-#include "CyrilEvaluator.h"
-#include "ShaderEvaluator.h"
-#include "CyrilShell.h"
 
 #include "ofxEditor.h"
 #include "ofxBeat.h"
 
 class cyrilApp : public ofBaseApp{
   
+	ofxEditor editor;
   ofxBeat beat;
-  
-  ofFbo drawing;
   
   //ofxXmlSettings settings;
   string fileName;
@@ -29,7 +25,9 @@ class cyrilApp : public ofBaseApp{
   vector<string> progFiles;
   int currentProg;
   bool reportError;
-  
+
+  ofFbo edBuf;
+
   bool lightsOn;
   
   bool autoClearBg;
@@ -41,13 +39,11 @@ class cyrilApp : public ofBaseApp{
   bool isFullScreen;
   bool doResetTimers;
   
-  void allocateDrawBuffer(int w, int h);
+  int lastSignalReport;
   
 public:
   
-	ofxEditor editor;
-  
-  cyrilApp(): editor("DroidSansMono.ttf"), isFullScreen(false), autoClearBg(true), mouseOn(false), lightsOn(false) {}
+  cyrilApp(): editor(9, "DroidSansMono.ttf") {}
   
   void setup();
   void update();
@@ -76,14 +72,8 @@ public:
   static void loadFile(void *);
   static void saveFile(void *);
   static void resetTimers(void *);
-  // Editor buffer callbacks
   static void pauseProgram(void *);
-  static bool runScript(void *);
-  
-  // Variable to store he current mouse click status
-  bool mouseOn;
-  
-  bool updateShader(int _t, int _n, string _s, ShaderEvaluator *_other);
+  static void runScript(void *);
   
 };
 

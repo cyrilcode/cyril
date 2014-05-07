@@ -67,6 +67,8 @@
 #define FUN_NOISE 31
 #define FUN_RAND 32
 
+#define REG_COUNT 68
+
 #define REG_TIME 0
 #define REG_FRAME 1
 #define REG_PI 13
@@ -110,14 +112,5 @@
 #define REG_COLOR_BLACK 33
 #define REG_COLOR_RED 34
 
-#define REG_CURRENT_SHADER 68
-
-#define REG_MOUSE_X 69
-#define REG_MOUSE_Y 70
-#define REG_MOUSE_ON 71
-
-// Count of the internal registers
-// or, think of this as next available register...
-#define REG_COUNT 72
 
 #endif

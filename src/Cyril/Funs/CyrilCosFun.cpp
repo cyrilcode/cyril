@@ -7,7 +7,6 @@
 //
 
 #include "CyrilCosFun.h"
-#include "CyrilState.h"
 
 CyrilCosFun::CyrilCosFun(Cyril* _c) : CyrilFun(_c) {
   int s = c->size();

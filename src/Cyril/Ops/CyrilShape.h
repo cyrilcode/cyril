@@ -13,10 +13,9 @@
 #include "Cyril.h"
 
 class CyrilShape : public Cyril {
-  ofPolyWindingMode polyMode;
   Cyril* e;
 public:
-  CyrilShape(string _m, Cyril* _e);
+  CyrilShape(Cyril* _e);
   CyrilShape (const CyrilShape &other);
   virtual ~CyrilShape ();
   virtual void print();

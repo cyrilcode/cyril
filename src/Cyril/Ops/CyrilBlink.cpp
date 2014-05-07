@@ -7,7 +7,6 @@
 //
 
 #include "CyrilBlink.h"
-#include "CyrilState.h"
 
 CyrilBlink::CyrilBlink (Cyril* _e, Cyril* _c) : e(_e), c(_c) {
   if (_e->size() != 2) {

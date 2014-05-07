@@ -7,7 +7,6 @@
 //
 
 #include "CyrilRandFun.h"
-#include "CyrilState.h"
 
 CyrilRandFun::CyrilRandFun(Cyril * _c) : CyrilFun(_c) {
   int s = _c->size();

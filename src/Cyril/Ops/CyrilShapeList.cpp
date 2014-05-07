@@ -7,7 +7,6 @@
 //
 
 #include "CyrilShapeList.h"
-#include "CyrilState.h"
 
 CyrilShapeList::CyrilShapeList (Cyril* _c) : c(_c) {
   int sz = _c->size();

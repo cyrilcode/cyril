@@ -7,7 +7,6 @@
 //
 
 #include "CyrilPaletteItem.h"
-#include "CyrilState.h"
 
 CyrilPaletteItem::CyrilPaletteItem(float _f, Cyril* _e) : d(_f), e(_e) {
   /*

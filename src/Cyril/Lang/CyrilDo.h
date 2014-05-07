@@ -8,7 +8,6 @@
 
 #ifndef cyril2_CurilDo_h
 #define cyril2_CurilDo_h
-#include "CyrilState.h"
 
 #include "cmds.h"
 

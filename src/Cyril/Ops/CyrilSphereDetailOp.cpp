@@ -7,7 +7,6 @@
 //
 
 #include "CyrilSphereDetailOp.h"
-#include "CyrilState.h"
 
 CyrilSphereDetailOp::CyrilSphereDetailOp (Cyril* _c) : CyrilOp(_c) {
   if (_c->size() != 1) {

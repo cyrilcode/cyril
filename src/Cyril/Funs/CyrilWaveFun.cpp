@@ -7,7 +7,6 @@
 //
 
 #include "CyrilWaveFun.h"
-#include "CyrilState.h"
 
 CyrilWaveFun::CyrilWaveFun(Cyril* _c) : CyrilFun(_c) {
   int s = c->size();

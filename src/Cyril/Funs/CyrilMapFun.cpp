@@ -7,7 +7,6 @@
 //
 
 #include "CyrilMapFun.h"
-#include "CyrilState.h"
 
 CyrilMapFun::CyrilMapFun(Cyril * _c) : CyrilFun(_c) {
   int s = _c->size();

@@ -9,7 +9,6 @@
 #ifndef cyril2_CyrilPush_h
 #define cyril2_CyrilPush_h
 
-#include "CyrilState.h"
 
 #include "cmds.h"
 

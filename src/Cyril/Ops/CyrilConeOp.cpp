@@ -7,7 +7,6 @@
 //
 
 #include "CyrilConeOp.h"
-#include "CyrilState.h"
 
 CyrilConeOp::CyrilConeOp (Cyril* _c) : CyrilOp(_c) {
   int s = c->size();
