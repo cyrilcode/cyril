@@ -8,6 +8,7 @@ map < string, ofColor > colorNameMap;
 
 int main( ){
   ofSetDataPathRoot("../Resources/data");
+  ofSetEscapeQuitsApp(false);
   
   colorNameMap["white"] = ofColor::white;
   colorNameMap["gray"] = ofColor::gray;
