@@ -178,6 +178,8 @@ void cyrilApp::draw(){
     ofDisableLighting();
   }
   
+  //ofEnableAlphaBlending();
+  
   _state.ms->clearStacks();
   float X_MAX = (*_state.sym)[REG_X_MAX];
   float Y_MAX = (*_state.sym)[REG_Y_MAX];
@@ -340,6 +342,7 @@ void cyrilApp::reloadFileBuffer(std::string filePath) {
     //cout << "Loading image " << file.getFileName() << endl;
     int whichImg = ofToInt(removeExtension(file.getFileName()));
     (*_state.img)[whichImg] = new ofImage(filePath);
+    (*_state.img)[whichImg]->setAnchorPercent(0.5, 0.5);
   }
 }
 
