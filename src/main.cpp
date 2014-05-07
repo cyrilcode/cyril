@@ -7,6 +7,7 @@
 map < string, ofColor > colorNameMap;
 
 int main( ){
+  // Set this temporarily to load font from packaged Resources
   ofSetDataPathRoot("../Resources/data");
   ofSetEscapeQuitsApp(false);
   

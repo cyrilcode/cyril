@@ -7,6 +7,13 @@ void cyrilApp::setup(){
   
   ofSoundStreamSetup(0, 1, this, 44100, beat.getBufferSize(), 4);
   
+  // Switch back to external data folder
+  ofSetDataPathRoot("../../../data/");
+  // Directory watcher for data folder
+  codeWatcher.registerAllEvents(this);
+  std::string folderToWatch = ofToDataPath("code", true);
+  codeWatcher.addPath(folderToWatch, true, &fileFilter);
+  
   ofBackground(0);
   pauseProg = false;
   lightsOn = true;
@@ -21,6 +28,7 @@ void cyrilApp::setup(){
   running[6] = false;
   running[7] = false;
   running[8] = false;
+  running[9] = false;
   error[0] = false;
   error[1] = false;
   error[2] = false;
@@ -30,6 +38,7 @@ void cyrilApp::setup(){
   error[6] = false;
   error[7] = false;
   error[8] = false;
+  error[9] = false;
 
 #ifdef FULL_DEBUG
 	ofSetLogLevel("ofxGLEditor", OF_LOG_VERBOSE);
@@ -174,7 +183,7 @@ void cyrilApp::draw(){
   float Y_SCALE = (*_state.sym)[REG_Y_SCALE];
   float Z_SCALE = (*_state.sym)[REG_Z_SCALE];
   
-  for (int i = 0; i < 9; ++i) {
+  for (int i = 0; i < 10; ++i) {
     if (running[i]) {
       if (prog[i]->valid) {
         ofPushMatrix();
@@ -208,7 +217,7 @@ void cyrilApp::draw(){
     ofPushMatrix();
     ofPushStyle();
     ofTranslate(X_MID - 45, 10);
-    for (int i = 0; i < 9; ++i) {
+    for (int i = 0; i < 10; ++i) {
       if (error[i]) {
         ofSetColor(255,0,0);
       }
@@ -265,17 +274,13 @@ void cyrilApp::toggleLights(void * _o) {
   ((cyrilApp *)_o)->_state.light->setAttenuation(1.f,0.f,0.f);
 }
 void cyrilApp::loadFile(void * _o) {
-  int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
-  ofSetDataPathRoot("../../../");
-	((cyrilApp *)_o)->editor.loadFile(ofToString(whichEditor)+".txt", whichEditor);
-  ofSetDataPathRoot("../Resources/data");
-  ((cyrilApp *)_o)->editor.update();
+  //int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
+	//((cyrilApp *)_o)->editor.loadFile(ofToString(whichEditor)+".txt", whichEditor);
+  //((cyrilApp *)_o)->editor.update();
 }
 void cyrilApp::saveFile(void * _o) {
-  int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
-  ofSetDataPathRoot("../../../");
-  ((cyrilApp *)_o)->editor.saveFile(ofToString(whichEditor)+".txt", whichEditor);
-  ofSetDataPathRoot("../Resources/data");
+  //int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
+  //((cyrilApp *)_o)->editor.saveFile(ofToString(whichEditor)+".txt", whichEditor);
 }
 void cyrilApp::resetTimers(void * _o) {
   ((cyrilApp *)_o)->doResetTimers = true;
@@ -308,6 +313,37 @@ void cyrilApp::runScript(void * _o) {
 }
 
 
+void cyrilApp::onDirectoryWatcherItemAdded(const DirectoryWatcherManager::DirectoryEvent& evt) {
+  ofFile file = ofFile(evt.item.path());
+  if (file.getExtension() == "cy") {
+    cout << "Load: " << file.getFileName() << endl;
+    int whichEditor = editor.currentBuffer;
+    editor.loadFile(evt.item.path(), whichEditor);
+    editor.update();
+  }
+}
+void cyrilApp::onDirectoryWatcherItemRemoved(const DirectoryWatcherManager::DirectoryEvent& evt) {
+  cout << "Unload: " << evt.item.path() << endl;
+}
+void cyrilApp::onDirectoryWatcherItemModified(const DirectoryWatcherManager::DirectoryEvent& evt) {
+  ofFile file = ofFile(evt.item.path());
+  if (file.getExtension() == "cy") {
+    cout << "Reload: " << evt.item.path() << endl;
+    int whichEditor = editor.currentBuffer;
+    editor.loadFile(evt.item.path(), whichEditor);
+    //editor.update();
+    runScript(this);
+  }
+}
+void cyrilApp::onDirectoryWatcherItemMovedFrom(const DirectoryWatcherManager::DirectoryEvent& evt) {
+  
+}
+void cyrilApp::onDirectoryWatcherItemMovedTo(const DirectoryWatcherManager::DirectoryEvent& evt) {
+  
+}
+void cyrilApp::onDirectoryWatcherError(const Poco::Exception& exc) {
+  
+}
 
 
 //--------------------------------------------------------------

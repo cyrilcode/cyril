@@ -9,6 +9,9 @@
 #include "ofxEditor.h"
 #include "ofxBeat.h"
 
+#include "ofxIO.h"
+using namespace ofx::IO;
+
 class cyrilApp : public ofBaseApp{
   
 	ofxEditor editor;
@@ -17,9 +20,9 @@ class cyrilApp : public ofBaseApp{
   //ofxXmlSettings settings;
   string fileName;
   
-  Cyril *prog[9];
-  bool running[9];
-  bool error[9];
+  Cyril *prog[10];
+  bool running[10];
+  bool error[10];
   
   CyrilState _state;
   vector<string> progFiles;
@@ -41,9 +44,12 @@ class cyrilApp : public ofBaseApp{
   
   int lastSignalReport;
   
+  DirectoryWatcherManager codeWatcher;
+  HiddenFileFilter fileFilter;
+  
 public:
   
-  cyrilApp(): editor(9, "DroidSansMono.ttf") {}
+  cyrilApp(): editor(10, "../Resources/DroidSansMono.ttf") {}
   
   void setup();
   void update();
@@ -75,5 +81,13 @@ public:
   static void pauseProgram(void *);
   static void runScript(void *);
   
+  // Directory watcher callbacks
+  void onDirectoryWatcherItemAdded(const DirectoryWatcherManager::DirectoryEvent& evt);
+  void onDirectoryWatcherItemRemoved(const DirectoryWatcherManager::DirectoryEvent& evt);
+  void onDirectoryWatcherItemModified(const DirectoryWatcherManager::DirectoryEvent& evt);
+  void onDirectoryWatcherItemMovedFrom(const DirectoryWatcherManager::DirectoryEvent& evt);
+  void onDirectoryWatcherItemMovedTo(const DirectoryWatcherManager::DirectoryEvent& evt);
+  void onDirectoryWatcherError(const Poco::Exception& exc);
+
 };
 
