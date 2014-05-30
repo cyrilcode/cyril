@@ -223,9 +223,11 @@ void cyrilApp::draw(){
   
   if (editorVisible) {
     ofDisableDepthTest();
-  	editor.draw();
     ofPushMatrix();
     ofPushStyle();
+    ofSetColor(255);
+    ofFill();
+  	editor.draw();
     ofTranslate(X_MID - 50, 10);
     for (int i = 0; i < 10; ++i) {
       if (error[i]) {
