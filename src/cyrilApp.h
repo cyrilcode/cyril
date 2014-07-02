@@ -10,12 +10,15 @@
 #include "ofxBeat.h"
 
 #include "ofxIO.h"
+#include "ofxPostProcessing.h"
+
 using namespace ofx::IO;
 
 class cyrilApp : public ofBaseApp{
   
-	ofxEditor editor;
+  ofxEditor editor;
   ofxBeat beat;
+  ofxPostProcessing post;
   
   //ofxXmlSettings settings;
   string fileName;

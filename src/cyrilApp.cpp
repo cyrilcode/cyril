@@ -133,6 +133,10 @@ void cyrilApp::setup(){
   
   isFullScreen = true;
   ofSetFullscreen(true);
+    
+  // TEMP POST-PROCESSING EFFECTS STUFF (eventually should be externally configurable?)
+  post.init(ofGetWidth(), ofGetHeight());
+  post.createPass<ToonPass>();
 }
 
 //--------------------------------------------------------------
@@ -171,6 +175,8 @@ void cyrilApp::update(){
 //--------------------------------------------------------------
 void cyrilApp::draw(){
   
+    post.begin();
+    
   ofEnableDepthTest();
   
   if (lightsOn) {
@@ -221,6 +227,8 @@ void cyrilApp::draw(){
     _state.light->disable();
   }
   
+  post.end();
+    
   if (editorVisible) {
     ofDisableDepthTest();
     ofPushMatrix();
