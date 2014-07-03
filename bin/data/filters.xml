@@ -1,0 +1,16 @@
+	<filters>
+		<bloom>0</bloom>
+        <contrast>0</contrast>
+        <convolution>0</convolution>
+        <dof>0</dof>
+        <edge>0</edge>
+		<fxaa>0</fxaa>
+        <godrays>0</godrays>
+        <tiltshift>0</tiltshift>
+        <kaleidoscope>0</kaleidoscope>
+        <noisewarp>0</noisewarp>
+        <pixelate>1</pixelate>
+        <rimhighlight>0</rimhighlight>
+        <toon>0</toon>
+        <zoomblur>0</zoomblur>
+	</filters>

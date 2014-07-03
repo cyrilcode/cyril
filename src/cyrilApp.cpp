@@ -2,7 +2,7 @@
 
 
 //--------------------------------------------------------------
-void cyrilApp::setup(){
+void cyrilApp::setup() {
   doResetTimers = true;
   
   ofSoundStreamSetup(0, 1, this, 44100, beat.getBufferSize(), 4);
@@ -133,10 +133,46 @@ void cyrilApp::setup(){
   
   isFullScreen = true;
   ofSetFullscreen(true);
+  
+  checkForFilters();
+}
+
+// Temporary handling to enable filters via an XML file.
+// This will eventually become editor commands!
+void cyrilApp::checkForFilters() {
     
-  // TEMP POST-PROCESSING EFFECTS STUFF (eventually should be externally configurable?)
-  post.init(ofGetWidth(), ofGetHeight());
-  post.createPass<ToonPass>();
+    post.init(ofGetWidth(), ofGetHeight());
+    ofxXmlSettings filters;
+    filters.loadFile("filters.xml");
+    
+    if( filters.getValue("filters:bloom", 0) == 1 )
+        post.createPass<BloomPass>();
+    if( filters.getValue("filters:contrast", 0) == 1 )
+        post.createPass<ContrastPass>();
+    if( filters.getValue("filters:convolution", 0) == 1 )
+        post.createPass<ConvolutionPass>();
+    if( filters.getValue("filters:dof", 0) == 1 )
+        post.createPass<DofPass>();
+    if( filters.getValue("filters:edge", 0) == 1 )
+        post.createPass<EdgePass>();
+    if( filters.getValue("filters:fxaa", 0) == 1 )
+        post.createPass<FxaaPass>();
+    if( filters.getValue("filters:godrays", 0) == 1 )
+        post.createPass<GodRaysPass>();
+    if( filters.getValue("filters:tiltshift", 0) == 1 )
+        post.createPass<HorizontalTiltShifPass>();
+    if( filters.getValue("filters:kaleidoscope", 0) == 1 )
+        post.createPass<KaleidoscopePass>();
+    if( filters.getValue("filters:noisewarp", 0) == 1 )
+        post.createPass<NoiseWarpPass>();
+    if( filters.getValue("filters:pixelate", 0) == 1 )
+        post.createPass<PixelatePass>();
+    if( filters.getValue("filters:rimhighlight", 0) == 1 )
+        post.createPass<RimHighlightingPass>();
+    if( filters.getValue("filters:toon", 0) == 1 )
+        post.createPass<ToonPass>();
+    if( filters.getValue("filters:zoomblur", 0) == 1 )
+        post.createPass<ZoomBlurPass>();
 }
 
 //--------------------------------------------------------------

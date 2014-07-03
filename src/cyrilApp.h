@@ -71,6 +71,7 @@ public:
   void applyGlobalSettings();
   void reloadSettings();
   void runProgram();
+  void checkForFilters();
   
   void audioReceived(float*, int, int);
   
