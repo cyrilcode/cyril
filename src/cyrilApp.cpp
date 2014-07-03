@@ -13,6 +13,7 @@ void cyrilApp::setup(){
   ofBackground(0);
   pauseProg = false;
   lightsOn = true;
+  isOrtho = false;
   
   runningProg = false;
   running[0] = false;
@@ -50,6 +51,7 @@ void cyrilApp::setup(){
   editor.addCommand('e', this, &cyrilApp::resetTimers);
   editor.addCommand('p', this, &cyrilApp::pauseProgram);
   editor.addCommand('r', this, &cyrilApp::runScript);
+  editor.addCommand('o', this, &cyrilApp::toggleOrtho);
   
   editorVisible = true;
   
@@ -133,6 +135,10 @@ void cyrilApp::setup(){
   
   isFullScreen = true;
   ofSetFullscreen(true);
+  
+	mainOutputSyphonServer.setName("Cyril Screen Output");
+	mClient.setup();
+  mClient.set("","Cyril Server");
 }
 
 //--------------------------------------------------------------
@@ -221,6 +227,8 @@ void cyrilApp::draw(){
     _state.light->disable();
   }
   
+	mainOutputSyphonServer.publishScreen();
+  
   if (editorVisible) {
     ofDisableDepthTest();
     ofPushMatrix();
@@ -248,6 +256,7 @@ void cyrilApp::draw(){
     ofPopStyle();
     ofPopMatrix();
   }
+  
 }
 
 
@@ -271,6 +280,16 @@ void cyrilApp::toggleFullscreen(void * _o) {
 }
 void cyrilApp::toggleEditor(void * _o) {
   ((cyrilApp *)_o)->editorVisible = !((cyrilApp *)_o)->editorVisible;
+}
+void cyrilApp::toggleOrtho(void * _o) {
+  ((cyrilApp *)_o)->isOrtho = !((cyrilApp *)_o)->isOrtho;
+  if (((cyrilApp *)_o)->isOrtho) {
+    //ofSetupScreenOrtho();
+    ofSetupScreenOrtho(1200,1200,0,10);
+  }
+  else {
+    ofSetupScreenPerspective(1200,1200,0,0,0);
+  }
 }
 void cyrilApp::toggleBackground(void * _o) {
   ((cyrilApp *)_o)->autoClearBg = !((cyrilApp *)_o)->autoClearBg;

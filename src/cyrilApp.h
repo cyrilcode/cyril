@@ -9,13 +9,20 @@
 #include "ofxEditor.h"
 #include "ofxBeat.h"
 
+#include "ofxSyphon.h"
+
 #include "ofxIO.h"
 using namespace ofx::IO;
+
+
 
 class cyrilApp : public ofBaseApp{
   
 	ofxEditor editor;
   ofxBeat beat;
+  
+	ofxSyphonServer mainOutputSyphonServer;
+	ofxSyphonClient mClient;
   
   //ofxXmlSettings settings;
   string fileName;
@@ -41,12 +48,14 @@ class cyrilApp : public ofBaseApp{
   bool cursorVisible;
   bool isFullScreen;
   bool doResetTimers;
+  bool isOrtho;
   
   int lastSignalReport;
   
   DirectoryWatcherManager codeWatcher;
   DirectoryWatcherManager spriteWatcher;
   HiddenFileFilter fileFilter;
+  
   
 public:
   
@@ -73,8 +82,9 @@ public:
   
   void reloadFileBuffer(std::string);
   
-  // Editor command callbacks 
+  // Editor command callbacks
   static void toggleFullscreen(void *);
+  static void toggleOrtho(void *);
   static void toggleEditor(void *);
   static void toggleBackground(void *);
   static void toggleLights(void *);

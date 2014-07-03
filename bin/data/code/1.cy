@@ -1,8 +1,11 @@
-//rotate
-move
+move -6, 0,0
+do 4 times 
+move 2,0
+push
+box 
+move 0,0,1
 rotate
-color cyan
-box
-move
-rotate
-box
+box 0.5
+pop
+end
+
