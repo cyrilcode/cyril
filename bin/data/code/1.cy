@@ -1,11 +1,19 @@
-move -6, 0,0
-do 4 times 
-move 2,0
-push
-box 
-move 0,0,1
-rotate
-box 0.5
-pop
+i: -0.5 * wave(1000)
+j: 0.5 * wave(500)
+
+
+tile 12,8
+ rotate FRAME,0,0,1
+ shape
+  vert i,j
+  vert i,i
+  vert j,i
+  vert j,j
+ end
 end
+
+
+
+
+
 

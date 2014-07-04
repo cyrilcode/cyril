@@ -317,8 +317,10 @@ void cyrilApp::resetTimers(void * _o) {
   ((cyrilApp *)_o)->doResetTimers = true;
 }
 void cyrilApp::pauseProgram(void * _o) {
-  int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
-  ((cyrilApp *)_o)->running[whichEditor] = !((cyrilApp *)_o)->running[whichEditor];
+  if (((cyrilApp *)_o)->prog[((cyrilApp *)_o)->editor.currentBuffer]->valid) {
+    int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
+    ((cyrilApp *)_o)->running[whichEditor] = !((cyrilApp *)_o)->running[whichEditor];
+  }
 }
 void cyrilApp::runScript(void * _o) {
   int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;

@@ -1,9 +1,16 @@
-scale 2
-rotate 1,1,0,TIME
-shape
- vert 0,0
- for i: 0 to TWO_PI step 0.1
-  vert sin(i),cos(i)
- end
- vert 0,1
+color white
+do KICK * 2 times
+push
+move rand(14) - 7,-4
+rotate 90
+DECAY: 0.02
+
+particle 0.1
+ color HEALTH * 255
+ rect 0.25
 end
+pop
+end
+
+
+

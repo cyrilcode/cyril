@@ -50,6 +50,14 @@ void CyrilRectOp::eval(CyrilState &_s) {
       w = 1;
       break;
   }
-  ofDrawBox(w, h, 1);
+  //ofDrawBox(w, h, 1);
+  w = w / 2.0;
+  h = h / 2.0;
+  ofBeginShape();
+  ofVertex(-w,-h);
+  ofVertex(w,-h);
+  ofVertex(w,h);
+  ofVertex(-w,h);
+  ofEndShape();
 }
 
