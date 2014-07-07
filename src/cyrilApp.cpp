@@ -317,7 +317,7 @@ void cyrilApp::resetTimers(void * _o) {
   ((cyrilApp *)_o)->doResetTimers = true;
 }
 void cyrilApp::pauseProgram(void * _o) {
-  if (((cyrilApp *)_o)->prog[((cyrilApp *)_o)->editor.currentBuffer]->valid) {
+  if (((cyrilApp *)_o)->prog[((cyrilApp *)_o)->editor.currentBuffer] && ((cyrilApp *)_o)->prog[((cyrilApp *)_o)->editor.currentBuffer]->valid) {
     int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
     ((cyrilApp *)_o)->running[whichEditor] = !((cyrilApp *)_o)->running[whichEditor];
   }
@@ -327,8 +327,9 @@ void cyrilApp::runScript(void * _o) {
 #ifdef DEBUG_PRINT
 	cout << "run script in editor " << whichEditor << endl;
 #endif
-  ((cyrilApp *)_o)->prog[whichEditor] = CyrilParser::parseString(((cyrilApp *)_o)->editor.buf[whichEditor]->getText());
-  if (((cyrilApp *)_o)->prog[whichEditor]->valid) {
+  Cyril* tempProg = CyrilParser::parseString(((cyrilApp *)_o)->editor.buf[whichEditor]->getText());
+  if (tempProg->valid) {
+    ((cyrilApp *)_o)->prog[whichEditor] = tempProg;
     ((cyrilApp *)_o)->runningProg = true;
     ((cyrilApp *)_o)->running[whichEditor] = true;
     ((cyrilApp *)_o)->error[whichEditor] = false;
