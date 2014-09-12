@@ -12,8 +12,10 @@ void cyrilApp::setup(){
   
   ofBackground(0);
   pauseProg = false;
-  lightsOn = true;
+  //lightsOn = true;
+  lightsOn = false;
   isOrtho = false;
+  fxOn = true;
   
   runningProg = false;
   running[0] = false;
@@ -42,6 +44,7 @@ void cyrilApp::setup(){
 #endif
   
   
+  editor.addCommand('z', this, &cyrilApp::toggleFx);
   editor.addCommand('f', this, &cyrilApp::toggleFullscreen);
   editor.addCommand('a', this, &cyrilApp::toggleEditor);
   editor.addCommand('d', this, &cyrilApp::toggleBackground);
@@ -115,10 +118,11 @@ void cyrilApp::setup(){
   autoClearBg = true;
   ofSetBackgroundAuto(true);
   
-  cursorVisible = false;
-  ofHideCursor();
+  // changed this...
+  cursorVisible = true;
+  //ofHideCursor();
 #ifdef __APPLE__
-  CGDisplayHideCursor(NULL); // <- OK
+  //CGDisplayHideCursor(NULL); // <- OK
 #endif
   
   
@@ -133,16 +137,31 @@ void cyrilApp::setup(){
   ofEnableAntiAliasing();
   ofEnableSmoothing();
   
-  isFullScreen = true;
-  ofSetFullscreen(true);
+  isFullScreen = false;
+  //ofSetFullscreen(true);
   
-	mainOutputSyphonServer.setName("Cyril Screen Output");
-	mClient.setup();
-  mClient.set("","Cyril Server");
+	mainOutputSyphonServer.setName("Cyril Main Output");
+	//mClient.setup();
+  //mClient.set("","Cyril Server");
+  
+	// listen on the given port
+	cout << "listening for osc messages on port " << PORT << endl;
+	receiver.setup(PORT);
+  
+  initPPFx();
 }
 
 //--------------------------------------------------------------
 void cyrilApp::update(){
+  
+  for (int i = 0; i < 10; ++i) {
+    if (running[i]) {
+      if (prog[i]->valid) {
+        prog[i]->update(_state);
+      }
+    }
+  }
+  
   if (doResetTimers) {
     (*_state.sym)[REG_FRAME] = 0;
     ofResetElapsedTimeCounter();
@@ -171,12 +190,29 @@ void cyrilApp::update(){
     (*it)->update();
   }
   ofRemove(*_state.ps, Particle::isDead);
-
+  
+	// check for waiting OSC messages
+	while(receiver.hasWaitingMessages()){
+		// get the next message
+		ofxOscMessage m;
+		receiver.getNextMessage(&m);
+    
+		// check for mouse moved message
+		if(m.getAddress() == "/buffer/0"){
+			string msg_string;
+			msg_string = m.getAddress();
+      cout << msg_string << endl;
+    }
+  }
 }
 
 //--------------------------------------------------------------
 void cyrilApp::draw(){
-  
+
+  if (fxOn) {
+    _state.post.begin();
+  }
+
   ofEnableDepthTest();
   
   if (lightsOn) {
@@ -229,6 +265,13 @@ void cyrilApp::draw(){
   
 	mainOutputSyphonServer.publishScreen();
   
+  if (fxOn) {
+    _state.post.end();
+  }
+  
+  _state.post[FX_KALEIDOSCOPE]->disable();
+  _state.post[FX_NOISE_WARP]->disable();
+  
   if (editorVisible) {
     ofDisableDepthTest();
     ofPushMatrix();
@@ -259,6 +302,9 @@ void cyrilApp::draw(){
   
 }
 
+void cyrilApp::toggleFx(void * _o) {
+  ((cyrilApp *)_o)->fxOn = !((cyrilApp *)_o)->fxOn;
+}
 
 
 void cyrilApp::toggleFullscreen(void * _o) {
@@ -433,6 +479,14 @@ void cyrilApp::windowResized(int w, int h){
   (*_state.sym)[REG_Y_MAX] = h;
   (*_state.sym)[REG_X_MID] = w / 2.0;
   (*_state.sym)[REG_Y_MID] = h / 2.0;
+  initPPFx();
+}
+
+void cyrilApp::initPPFx() {
+  _state.post = ofxPostProcessing();
+  _state.post.init(ofGetWidth(), ofGetHeight());
+  _state.kaleido = _state.post.createPass<KaleidoscopePass>();
+  _state.noisewarp = _state.post.createPass<NoiseWarpPass>();
 }
 
 //--------------------------------------------------------------

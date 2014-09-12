@@ -1,16 +1,13 @@
-color white
-do KICK * 2 times
-push
-move rand(14) - 7,-4
-rotate 90
-DECAY: 0.02
-
-particle 0.1
- color HEALTH * 255
- rect 0.25
+palette $p
+ 10 yellow
+ 10 red
 end
-pop
+do 10 times
+if KICK 
+ i: i + 0.1
 end
-
-
-
+x: (noise(i) * 10) - 5
+move x, 0 
+color lerp($p, (x + 5) / 10)
+box 1,10,0
+end

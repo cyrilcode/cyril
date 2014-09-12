@@ -24,3 +24,7 @@ int Cyril::size() {
 void Cyril::eval(CyrilState &) {
   // Do nothing!
 }
+
+void Cyril::update(CyrilState &) {
+  // Do nothing!
+}

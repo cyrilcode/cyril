@@ -161,6 +161,8 @@ int main( ){
   
   int X_MAX = 640;
   int Y_MAX = 480;
+  //int X_MAX = 2048;
+  //int Y_MAX = 768;
   ofSetupOpenGL(X_MAX, Y_MAX, OF_WINDOW);
   
 	ofRunApp(new cyrilApp());

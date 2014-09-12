@@ -26,6 +26,7 @@ public:
   virtual Cyril *clone ();
   virtual void print() { };
   virtual int size();
+  virtual void update(CyrilState &);
   virtual void eval(CyrilState &);
   virtual int matchPushPop() { return 0; }
 };

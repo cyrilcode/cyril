@@ -10,6 +10,7 @@
 #define __cyril2__CyrilState__
 
 #include "ofMain.h"
+#include "ofxPostProcessing.h"
 
 class Particle;
 class Palette;
@@ -24,6 +25,10 @@ public:
   map<int, ofImage*> * img;
   CyrilState * parent;
   ofLight * light;
+  ofxPostProcessing post;
+  KaleidoscopePass::Ptr kaleido;
+  NoiseWarpPass::Ptr noisewarp;
+  float kaleidosegments;
   
   CyrilState(map<int, float> * _t,
              stack<float> * _s, ofMatrixStack * _m, vector<Particle*> * _p,

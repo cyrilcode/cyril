@@ -1,19 +1,21 @@
-i: -0.5 * wave(1000)
-j: 0.5 * wave(500)
-
-
-tile 12,8
- rotate FRAME,0,0,1
- shape
-  vert i,j
-  vert i,i
-  vert j,i
-  vert j,j
- end
+color white
+DECAY: 0.01
+i: i + 0.09
+j: j + 0.009
+//blink 1,5
+ x: rand(10) - 5 
+ y: rand(6) - 3
+ a: rand(360)
+ x: (noise(i) * 10) - 5
+ y: (noise(j) * 6) - 3
+//end
+move x, y
+rotate a
+color red
+box 0.3
+particle 0.005,0,0,wave(50) * 0.025
+ fill
+ color white, HEALTH * 255
+ box 0.2 
 end
-
-
-
-
-
 

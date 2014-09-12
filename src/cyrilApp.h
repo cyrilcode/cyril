@@ -11,9 +11,16 @@
 
 #include "ofxSyphon.h"
 
+#include "ofxPostProcessing.h"
+#define FX_KALEIDOSCOPE 0
+#define FX_NOISE_WARP 1
+
+#include "ofxOsc.h"
+// listen on port 12345
+#define PORT 12345
+
 #include "ofxIO.h"
 using namespace ofx::IO;
-
 
 
 class cyrilApp : public ofBaseApp{
@@ -22,7 +29,8 @@ class cyrilApp : public ofBaseApp{
   ofxBeat beat;
   
 	ofxSyphonServer mainOutputSyphonServer;
-	ofxSyphonClient mClient;
+	//ofxSyphonClient mClient;
+  ofxOscReceiver receiver;
   
   //ofxXmlSettings settings;
   string fileName;
@@ -39,6 +47,7 @@ class cyrilApp : public ofBaseApp{
   ofFbo edBuf;
 
   bool lightsOn;
+  bool fxOn;
   
   bool autoClearBg;
   bool pauseProg;
@@ -56,6 +65,7 @@ class cyrilApp : public ofBaseApp{
   DirectoryWatcherManager spriteWatcher;
   HiddenFileFilter fileFilter;
   
+  void initPPFx();
   
 public:
   
@@ -83,6 +93,7 @@ public:
   void reloadFileBuffer(std::string);
   
   // Editor command callbacks
+  static void toggleFx(void *);
   static void toggleFullscreen(void *);
   static void toggleOrtho(void *);
   static void toggleEditor(void *);

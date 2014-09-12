@@ -33,6 +33,10 @@ public:
   }
   virtual Cyril *clone () { return new CyrilList (*this); }
   virtual int size() { return c1->size() + c2->size(); }
+  virtual void update(CyrilState &_s) {
+    c1->update(_s);
+    c2->update(_s);
+  }
   virtual void eval(CyrilState &_s) {
     c1->eval(_s);
     c2->eval(_s);
