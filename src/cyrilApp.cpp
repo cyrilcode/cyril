@@ -13,7 +13,7 @@ void cyrilApp::setup(){
   ofBackground(0);
   pauseProg = false;
   //lightsOn = true;
-  lightsOn = false;
+  lightsOn = true;
   isOrtho = false;
   fxOn = true;
   
