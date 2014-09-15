@@ -10,9 +10,9 @@
 
 CyrilPixelate::CyrilPixelate (Cyril* _e) : e(_e) {
   s = e->size();
-  if (!(s == 3 || s == 0)) {
-    // FREQ, AMP, SPEED
-    yyerror("Pixelate FX command takes 0 arguments");
+  if (!(s == 2 || s == 1 || s == 0)) {
+    // Width, Height - or single argument for same w and h
+    yyerror("Pixelate FX command takes 0, 1 or 2 arguments");
     valid = false;
   }
 }
@@ -37,6 +37,25 @@ void CyrilPixelate::update(CyrilState &_s) {
   _s.post[2]->enable();
 }
 void CyrilPixelate::eval(CyrilState &_s) {
-  // do nothing
+  float width, height;
+  if (s == 2) {
+    e->eval(_s);
+    height = _s.stk->top();
+    _s.stk->pop();
+    width = _s.stk->top();
+    _s.stk->pop();
+  }
+  else if (s == 1) {
+    e->eval(_s);
+    height = _s.stk->top();
+    width = height;
+    _s.stk->pop();
+  }
+  else {
+    // same defaults as ofxPostProcessing:
+    width = 100;
+    height = 100;
+  }
+  _s.pixelate->setResolution(width, height);
 }
 

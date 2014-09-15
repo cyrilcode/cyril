@@ -149,7 +149,12 @@ void cyrilApp::setup(){
 	//receiver.setup(PORT);
   
   // Configure the ofxPostProcessing effects
-  initPPFx();
+  _state.post = ofxPostProcessing();
+  _state.post.init(ofGetWidth(), ofGetHeight());
+  _state.post.setFlip(false);
+  _state.kaleido = _state.post.createPass<KaleidoscopePass>();
+  _state.noisewarp = _state.post.createPass<NoiseWarpPass>();
+  _state.pixelate = _state.post.createPass<PixelatePass>();
 }
 
 //--------------------------------------------------------------
@@ -487,17 +492,10 @@ void cyrilApp::windowResized(int w, int h){
   (*_state.sym)[REG_Y_MAX] = h;
   (*_state.sym)[REG_X_MID] = w / 2.0;
   (*_state.sym)[REG_Y_MID] = h / 2.0;
-  initPPFx();
+  _state.post.setWidth(w);
+  _state.post.setHeight(h);
 }
 
-void cyrilApp::initPPFx() {
-  _state.post = ofxPostProcessing();
-  _state.post.init(ofGetWidth(), ofGetHeight());
-  _state.post.setFlip(false);
-  _state.kaleido = _state.post.createPass<KaleidoscopePass>();
-  _state.noisewarp = _state.post.createPass<NoiseWarpPass>();
-  _state.pixelate = _state.post.createPass<PixelatePass>();
-}
 
 //--------------------------------------------------------------
 void cyrilApp::gotMessage(ofMessage msg){
