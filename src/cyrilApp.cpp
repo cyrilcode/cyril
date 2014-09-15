@@ -140,14 +140,15 @@ void cyrilApp::setup(){
   isFullScreen = false;
   //ofSetFullscreen(true);
   
-	mainOutputSyphonServer.setName("Cyril Main Output");
+	//mainOutputSyphonServer.setName("Cyril Main Output");
 	//mClient.setup();
   //mClient.set("","Cyril Server");
   
 	// listen on the given port
-	cout << "listening for osc messages on port " << PORT << endl;
-	receiver.setup(PORT);
+	//cout << "listening for osc messages on port " << PORT << endl;
+	//receiver.setup(PORT);
   
+  // Configure the ofxPostProcessing effects
   initPPFx();
 }
 
@@ -191,6 +192,7 @@ void cyrilApp::update(){
   }
   ofRemove(*_state.ps, Particle::isDead);
   
+  /*
 	// check for waiting OSC messages
 	while(receiver.hasWaitingMessages()){
 		// get the next message
@@ -204,6 +206,7 @@ void cyrilApp::update(){
       cout << msg_string << endl;
     }
   }
+  */
 }
 
 //--------------------------------------------------------------
@@ -263,15 +266,19 @@ void cyrilApp::draw(){
     _state.light->disable();
   }
   
-	mainOutputSyphonServer.publishScreen();
   
   if (fxOn) {
     _state.post.end();
   }
   
+	//mainOutputSyphonServer.publishScreen();
+  
+  // Disable all ofxPostProcessing effects so they only activate
+  // if command is present in a running program
   _state.post[FX_KALEIDOSCOPE]->disable();
   _state.post[FX_NOISE_WARP]->disable();
   
+  // Draw the editor if enabled
   if (editorVisible) {
     ofDisableDepthTest();
     ofPushMatrix();

@@ -28,9 +28,9 @@ class cyrilApp : public ofBaseApp{
 	ofxEditor editor;
   ofxBeat beat;
   
-	ofxSyphonServer mainOutputSyphonServer;
+	//ofxSyphonServer mainOutputSyphonServer;
 	//ofxSyphonClient mClient;
-  ofxOscReceiver receiver;
+  //ofxOscReceiver receiver;
   
   //ofxXmlSettings settings;
   string fileName;
