@@ -9,10 +9,10 @@
 #include "CyrilNoiseWarp.h"
 
 CyrilNoiseWarp::CyrilNoiseWarp (Cyril* _e) : e(_e) {
-  int s = e->size();
-  if (!(s == 3)) {
+  s = e->size();
+  if (!(s == 3 || s == 0)) {
     // FREQ, AMP, SPEED
-    yyerror("NoiseWarp FX command takes 3 arguments");
+    yyerror("NoiseWarp FX command takes 0 or 3 arguments");
     valid = false;
   }
 }
@@ -37,13 +37,22 @@ void CyrilNoiseWarp::update(CyrilState &_s) {
   _s.post[1]->enable();
 }
 void CyrilNoiseWarp::eval(CyrilState &_s) {
-  e->eval(_s);
-  float frequency = _s.stk->top();
-  _s.stk->pop();
-  float amplitude = _s.stk->top();
-  _s.stk->pop();
-  float speed = _s.stk->top();
-  _s.stk->pop();
+  float frequency, amplitude, speed;
+  if (s == 3) {
+    e->eval(_s);
+    frequency = _s.stk->top();
+    _s.stk->pop();
+    amplitude = _s.stk->top();
+    _s.stk->pop();
+    speed = _s.stk->top();
+    _s.stk->pop();
+  }
+  else {
+    // same defaults as ofxPostProcessing:
+    frequency = 4.0;
+    amplitude = 0.1;
+    speed = 0.1;
+  }
   _s.noisewarp->setFrequency(frequency);
   _s.noisewarp->setAmplitude(amplitude);
   _s.noisewarp->setSpeed(speed);

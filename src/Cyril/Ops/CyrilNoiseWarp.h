@@ -15,6 +15,7 @@
 class CyrilNoiseWarp : public Cyril {
 protected:
   Cyril* e;
+  int s;
 public:
   CyrilNoiseWarp(Cyril* _e);
   CyrilNoiseWarp (const CyrilNoiseWarp &other);

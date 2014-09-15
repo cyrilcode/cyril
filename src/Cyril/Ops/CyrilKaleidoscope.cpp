@@ -9,9 +9,9 @@
 #include "CyrilKaleidoscope.h"
 
 CyrilKaleidoscope::CyrilKaleidoscope (Cyril* _e) : e(_e) {
-  int s = e->size();
-  if (!(s == 1)) {
-    yyerror("Kaleidoscope command takes 1 argument");
+  s = e->size();
+  if (!(s == 1 || s == 0)) {
+    yyerror("Kaleidoscope command takes 0 or 1 argument");
     valid = false;
   }
 }
@@ -36,9 +36,15 @@ void CyrilKaleidoscope::update(CyrilState &_s) {
   _s.post[0]->enable();
 }
 void CyrilKaleidoscope::eval(CyrilState &_s) {
-  e->eval(_s);
-  float d = _s.stk->top();
-  _s.stk->pop();
+  float d;
+  if (s == 0) {
+    d = 2.0;
+  }
+  else {
+    e->eval(_s);
+    d = _s.stk->top();
+    _s.stk->pop();
+  }
   _s.kaleido->setSegments(d);
 }
 

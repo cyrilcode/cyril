@@ -15,6 +15,7 @@
 class CyrilKaleidoscope : public Cyril {
 protected:
   Cyril* e;
+  int s;
 public:
   CyrilKaleidoscope(Cyril* _e);
   CyrilKaleidoscope (const CyrilKaleidoscope &other);
