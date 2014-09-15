@@ -28,6 +28,7 @@ public:
   ofxPostProcessing post;
   KaleidoscopePass::Ptr kaleido;
   NoiseWarpPass::Ptr noisewarp;
+  PixelatePass::Ptr pixelate;
   float kaleidosegments;
   
   CyrilState(map<int, float> * _t,

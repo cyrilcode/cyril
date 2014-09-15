@@ -14,6 +14,7 @@
 #include "ofxPostProcessing.h"
 #define FX_KALEIDOSCOPE 0
 #define FX_NOISE_WARP 1
+#define FX_PIXELATE 2
 
 #include "ofxOsc.h"
 // listen on port 12345

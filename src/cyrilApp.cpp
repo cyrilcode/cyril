@@ -155,6 +155,12 @@ void cyrilApp::setup(){
 //--------------------------------------------------------------
 void cyrilApp::update(){
   
+  // Disable all ofxPostProcessing effects so they only activate
+  // if command is present in a running program
+  _state.post[FX_KALEIDOSCOPE]->disable();
+  _state.post[FX_NOISE_WARP]->disable();
+  _state.post[FX_PIXELATE]->disable();
+  
   for (int i = 0; i < 10; ++i) {
     if (running[i]) {
       if (prog[i]->valid) {
@@ -272,11 +278,6 @@ void cyrilApp::draw(){
   }
   
 	//mainOutputSyphonServer.publishScreen();
-  
-  // Disable all ofxPostProcessing effects so they only activate
-  // if command is present in a running program
-  _state.post[FX_KALEIDOSCOPE]->disable();
-  _state.post[FX_NOISE_WARP]->disable();
   
   // Draw the editor if enabled
   if (editorVisible) {
@@ -495,6 +496,7 @@ void cyrilApp::initPPFx() {
   _state.post.setFlip(false);
   _state.kaleido = _state.post.createPass<KaleidoscopePass>();
   _state.noisewarp = _state.post.createPass<NoiseWarpPass>();
+  _state.pixelate = _state.post.createPass<PixelatePass>();
 }
 
 //--------------------------------------------------------------
