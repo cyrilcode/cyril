@@ -492,6 +492,7 @@ void cyrilApp::windowResized(int w, int h){
 void cyrilApp::initPPFx() {
   _state.post = ofxPostProcessing();
   _state.post.init(ofGetWidth(), ofGetHeight());
+  _state.post.setFlip(false);
   _state.kaleido = _state.post.createPass<KaleidoscopePass>();
   _state.noisewarp = _state.post.createPass<NoiseWarpPass>();
 }
