@@ -155,6 +155,7 @@ void cyrilApp::setup(){
   _state.kaleido = _state.post.createPass<KaleidoscopePass>();
   _state.noisewarp = _state.post.createPass<NoiseWarpPass>();
   _state.pixelate = _state.post.createPass<PixelatePass>();
+  _state.bloom = _state.post.createPass<BloomPass>();
 }
 
 //--------------------------------------------------------------
@@ -165,6 +166,7 @@ void cyrilApp::update(){
   _state.post[FX_KALEIDOSCOPE]->disable();
   _state.post[FX_NOISE_WARP]->disable();
   _state.post[FX_PIXELATE]->disable();
+  _state.post[FX_BLOOM]->disable();
   
   for (int i = 0; i < 10; ++i) {
     if (running[i]) {

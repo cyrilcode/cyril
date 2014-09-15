@@ -50,6 +50,7 @@
 #include "CyrilKaleidoscope.h"
 #include "CyrilNoiseWarp.h"
 #include "CyrilPixelate.h"
+#include "CyrilBloom.h"
 
 #include "CyrilAnimation.h"
 #include "CyrilAnimStep.h"
@@ -154,6 +155,7 @@ Cyril * cyrilOpFactory(const char * _s, Cyril * _c) {
   if (strncmp("fxK", _s, 3) == 0) return new CyrilKaleidoscope(_c);
   if (strncmp("fxNW", _s, 4) == 0) return new CyrilNoiseWarp(_c);
   if (strncmp("fxP", _s, 3) == 0) return new CyrilPixelate(_c);
+  if (strncmp("fxB", _s, 3) == 0) return new CyrilBloom(_c);
   return new CyrilOp(_c);
 }
 

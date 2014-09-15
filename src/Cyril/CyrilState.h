@@ -29,6 +29,7 @@ public:
   KaleidoscopePass::Ptr kaleido;
   NoiseWarpPass::Ptr noisewarp;
   PixelatePass::Ptr pixelate;
+  BloomPass::Ptr bloom;
   float kaleidosegments;
   
   CyrilState(map<int, float> * _t,

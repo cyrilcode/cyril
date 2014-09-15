@@ -113,6 +113,7 @@
 		95154CE619BA61E40084696C /* ToonPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95154CC519BA61E40084696C /* ToonPass.cpp */; };
 		95154CE719BA61E40084696C /* VerticalTiltShifPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95154CC719BA61E40084696C /* VerticalTiltShifPass.cpp */; };
 		95154CE819BA61E40084696C /* ZoomBlurPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95154CC919BA61E40084696C /* ZoomBlurPass.cpp */; };
+		951F60D419C771FD00FC0F28 /* CyrilBloom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 951F60D219C771FD00FC0F28 /* CyrilBloom.cpp */; };
 		9537DDEC19C2686E005472E9 /* CyrilKaleidoscope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9537DDEA19C2686E005472E9 /* CyrilKaleidoscope.cpp */; };
 		9537DDFD19C3799B005472E9 /* CyrilNoiseWarp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9537DDFB19C3799B005472E9 /* CyrilNoiseWarp.cpp */; };
 		9558677119C74DCF009440AB /* CyrilPixelate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9558676F19C74DCF009440AB /* CyrilPixelate.cpp */; };
@@ -425,6 +426,8 @@
 		95154CC819BA61E40084696C /* VerticalTiltShifPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalTiltShifPass.h; sourceTree = "<group>"; };
 		95154CC919BA61E40084696C /* ZoomBlurPass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZoomBlurPass.cpp; sourceTree = "<group>"; };
 		95154CCA19BA61E40084696C /* ZoomBlurPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomBlurPass.h; sourceTree = "<group>"; };
+		951F60D219C771FD00FC0F28 /* CyrilBloom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilBloom.cpp; sourceTree = "<group>"; };
+		951F60D319C771FD00FC0F28 /* CyrilBloom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilBloom.h; sourceTree = "<group>"; };
 		9537DDEA19C2686E005472E9 /* CyrilKaleidoscope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CyrilKaleidoscope.cpp; path = Ops/CyrilKaleidoscope.cpp; sourceTree = "<group>"; };
 		9537DDEB19C2686E005472E9 /* CyrilKaleidoscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CyrilKaleidoscope.h; path = Ops/CyrilKaleidoscope.h; sourceTree = "<group>"; };
 		9537DDFB19C3799B005472E9 /* CyrilNoiseWarp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CyrilNoiseWarp.cpp; path = Ops/CyrilNoiseWarp.cpp; sourceTree = "<group>"; };
@@ -933,6 +936,8 @@
 				9537DDFC19C3799B005472E9 /* CyrilNoiseWarp.h */,
 				9558676F19C74DCF009440AB /* CyrilPixelate.cpp */,
 				9558677019C74DCF009440AB /* CyrilPixelate.h */,
+				951F60D219C771FD00FC0F28 /* CyrilBloom.cpp */,
+				951F60D319C771FD00FC0F28 /* CyrilBloom.h */,
 			);
 			name = FX;
 			sourceTree = "<group>";
@@ -1583,6 +1588,7 @@
 				9593AFA2191A7B060061B02D /* DirectoryUtils.cpp in Sources */,
 				9537DDFD19C3799B005472E9 /* CyrilNoiseWarp.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
+				951F60D419C771FD00FC0F28 /* CyrilBloom.cpp in Sources */,
 				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
 				63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */,
 				933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */,

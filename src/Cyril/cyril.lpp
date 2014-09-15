@@ -60,7 +60,7 @@ vert|img|box|ball|sphere|line|rect|cone|peg|grid|move { yylval.sval = strdup(yyt
 debug|color|background|ballDetail|sphereDetail|light { yylval.sval = strdup(yytext);
   return KEYWORD;
 }
-fxK|fxNW|fxP|lightOn|lightOff|lightPosition|lightColor|lightHighlight { yylval.sval = strdup(yytext);
+fxK|fxNW|fxP|fxB|lightOn|lightOff|lightPosition|lightColor|lightHighlight { yylval.sval = strdup(yytext);
   return KEYWORD;
 }
 rotate|fill|stroke|push|pushMatrix|pop|popMatrix|scale|fill|noFill { yylval.sval = strdup(yytext);
