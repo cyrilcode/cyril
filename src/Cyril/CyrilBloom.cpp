@@ -41,7 +41,7 @@ void CyrilBloom::eval(CyrilState &_s) {
   float bloom;
   if (s == 1) {
     e->eval(_s);
-    bloom = _s.stk->top();
+    bloom = (_s.stk->top()) / 1000.0f;
     _s.stk->pop();
   }
   else {
@@ -49,16 +49,8 @@ void CyrilBloom::eval(CyrilState &_s) {
     bloom = 0.001953125;
   }
   if (bloom != prevBloom) {
-    // There must be a better way to update the blur factor?
-    float width = ofGetWidth();
-    float height = ofGetHeight();
-    bool arb = false;
-    ofVec2f b1 = ofVec2f(bloom, 0.0);
-    ofVec2f b2 = ofVec2f(0.0, bloom);
-    shared_ptr<BloomPass> pass = shared_ptr<BloomPass>(new BloomPass(ofVec2f(width, height), arb, b1, b2));
-    // FX_BLOOM = 3
-    _s.post[3] = pass;
-    _s.bloom = pass;
+    prevBloom = bloom;
+    _s.bloom->setIncrements(bloom, 0, 0, bloom);
   }
 }
 
