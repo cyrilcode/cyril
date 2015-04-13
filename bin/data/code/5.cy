@@ -1,24 +1,31 @@
-background 0,0,0,0
+move 0,0,4
+rotate 45,1,0,0
+scale 2
 color white
-//fill
-stroke 3
-
-i: i + 0.05
-if KICK
- j: 2
+push
+do 4 times
+rotate FRAME / 8, 0,1,0
+push
+rotate FRAME / 10,0,1,0
+tile 4,4,4
+ box 0.25,0.025,0.01
 end
-j: j - 0.09
-tile 15,8
-shape 
- x: sin(i)
- y: cos(i)
- rotate wave(1000) * 360,1,1,0
- vert 0 - j,0 - j
- vert x,0
- vert 0,y
- vert j,j
+pop
 end
+pop
+
+push
+move 0,0,-1
+do 10 times
+rotate 0 - FRAME / 20,0,1,0
+push
+rotate FRAME / 6,0,1,0
+tile 4,4,4
+box 0.1,0.02,0.05
 end
+pop
 
+end
+pop
 
-
+fxB 3

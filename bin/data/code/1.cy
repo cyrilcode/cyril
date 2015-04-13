@@ -1,21 +1,26 @@
-color white
-DECAY: 0.01
-i: i + 0.09
-j: j + 0.009
-//blink 1,5
- x: rand(10) - 5 
- y: rand(6) - 3
- a: rand(360)
- x: (noise(i) * 10) - 5
- y: (noise(j) * 6) - 3
-//end
-move x, y
-rotate a
-color red
-box 0.3
-particle 0.005,0,0,wave(50) * 0.025
- fill
- color white, HEALTH * 255
- box 0.2 
+light 0,-10,10
+
+rotate
+//stroke
+fill
+DECAY: 0.1
+ballDetail 0.1
+color hotPink,255
+i: i + 0.01
+for x: -20 to 25 step 4
+for y: -10 to 14 step 4
+push
+ move x,y,-1
+ rotate 270,0,1,0
+ rotate (1 - noise(i)) * 360
+ particle 0,noise(x,y,i) * 0.5,noise(y,x,i) * 0.3,0
+//  color hsb(100,255,255),HEALTH
+  rotate
+  box 0.2, 1, 2
+ end
+pop
+end
 end
 
+
+//fxB 2

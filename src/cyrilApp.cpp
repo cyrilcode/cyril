@@ -78,13 +78,6 @@ void cyrilApp::setup(){
   //_state.light = NULL;
   
   
-  // Directory watcher for data folder
-  codeWatcher.registerAllEvents(this);
-  spriteWatcher.registerAllEvents(this);
-  codeWatcher.addPath(ofToDataPath("code", true), true, &fileFilter);
-  spriteWatcher.addPath(ofToDataPath("sprites", true), true, &fileFilter);
-  
-  
   (*_state.sym)[REG_X_MAX] = 640;
   (*_state.sym)[REG_Y_MAX] = 480;
   (*_state.sym)[REG_X_MID] = (*_state.sym)[REG_X_MAX] / 2.0;
@@ -156,11 +149,32 @@ void cyrilApp::setup(){
   _state.noisewarp = _state.post.createPass<NoiseWarpPass>();
   _state.pixelate = _state.post.createPass<PixelatePass>();
   _state.bloom = _state.post.createPass<BloomPass>();
+    
+    for (int i = 0; i < 10; ++i) {
+        modTimes[i] = 0;
+    }
 }
 
 //--------------------------------------------------------------
 void cyrilApp::update(){
-  
+    // check files for modifications
+    for (int i = 0; i < 10; ++i) {
+        // cout << "data/code/" + ofToString(i) + ".cy" << endl;
+        ofFile f = ofFile("code/" + ofToString(i) + ".cy");
+        if (f.exists()) {
+         // cout << f.getPocoFile().getLastModified().epochTime() << endl;
+            Poco::Timestamp t = f.getPocoFile().getLastModified();
+            if (t > modTimes[i]) {
+                modTimes[i] = t;
+                reloadFileBuffer("code/" + ofToString(i) + ".cy");
+            }¡
+        }
+        else {
+            //cout << "file " + ofToString(i) << ".cy not found" << endl;
+        }
+    }
+    
+    
   // Disable all ofxPostProcessing effects so they only activate
   // if command is present in a running program
   _state.post[FX_KALEIDOSCOPE]->disable();
@@ -437,24 +451,6 @@ void cyrilApp::reloadFileBuffer(std::string filePath) {
   }
 }
 
-void cyrilApp::onDirectoryWatcherItemAdded(const DirectoryWatcherManager::DirectoryEvent& evt) {
-  reloadFileBuffer(evt.item.path());
-}
-void cyrilApp::onDirectoryWatcherItemRemoved(const DirectoryWatcherManager::DirectoryEvent& evt) {
-  //cout << "Unload: " << evt.item.path() << endl;
-}
-void cyrilApp::onDirectoryWatcherItemModified(const DirectoryWatcherManager::DirectoryEvent& evt) {
-  reloadFileBuffer(evt.item.path());
-}
-void cyrilApp::onDirectoryWatcherItemMovedFrom(const DirectoryWatcherManager::DirectoryEvent& evt) {
-  
-}
-void cyrilApp::onDirectoryWatcherItemMovedTo(const DirectoryWatcherManager::DirectoryEvent& evt) {
-  
-}
-void cyrilApp::onDirectoryWatcherError(const Poco::Exception& exc) {
-  
-}
 
 
 //--------------------------------------------------------------

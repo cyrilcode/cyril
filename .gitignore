@@ -2,6 +2,7 @@ bin/*.app
 cyril.xcodeproj/project.xcworkspace/xcshareddata*
 cyril.xcodeproj/project.xcworkspace/xcuserdata/*
 cyril.xcodeproj/project.xcworkspace/xcuserdata/darren.xcuserdatad/UserInterfaceState.xcuserstate
+*darren.xcuserdatad*
 
 # OS generated files #
 ######################

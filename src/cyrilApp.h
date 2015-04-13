@@ -21,9 +21,6 @@
 // listen on port 12345
 #define PORT 12345
 
-#include "ofxIO.h"
-using namespace ofx::IO;
-
 
 class cyrilApp : public ofBaseApp{
   
@@ -38,6 +35,7 @@ class cyrilApp : public ofBaseApp{
   string fileName;
   
   Cyril *prog[10];
+  Poco::Timestamp modTimes[10];
   bool running[10];
   bool error[10];
   
@@ -62,10 +60,6 @@ class cyrilApp : public ofBaseApp{
   bool isOrtho;
   
   int lastSignalReport;
-  
-  DirectoryWatcherManager codeWatcher;
-  DirectoryWatcherManager spriteWatcher;
-  HiddenFileFilter fileFilter;
   
   void initPPFx();
   
@@ -107,13 +101,6 @@ public:
   static void pauseProgram(void *);
   static void runScript(void *);
   
-  // Directory watcher callbacks
-  void onDirectoryWatcherItemAdded(const DirectoryWatcherManager::DirectoryEvent& evt);
-  void onDirectoryWatcherItemRemoved(const DirectoryWatcherManager::DirectoryEvent& evt);
-  void onDirectoryWatcherItemModified(const DirectoryWatcherManager::DirectoryEvent& evt);
-  void onDirectoryWatcherItemMovedFrom(const DirectoryWatcherManager::DirectoryEvent& evt);
-  void onDirectoryWatcherItemMovedTo(const DirectoryWatcherManager::DirectoryEvent& evt);
-  void onDirectoryWatcherError(const Poco::Exception& exc);
 
 };
 

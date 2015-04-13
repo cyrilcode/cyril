@@ -117,28 +117,6 @@
 		9537DDEC19C2686E005472E9 /* CyrilKaleidoscope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9537DDEA19C2686E005472E9 /* CyrilKaleidoscope.cpp */; };
 		9537DDFD19C3799B005472E9 /* CyrilNoiseWarp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9537DDFB19C3799B005472E9 /* CyrilNoiseWarp.cpp */; };
 		9558677119C74DCF009440AB /* CyrilPixelate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9558676F19C74DCF009440AB /* CyrilPixelate.cpp */; };
-		9593AF9A191A7B060061B02D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9593AF5F191A7B060061B02D /* .gitignore */; };
-		9593AF9B191A7B060061B02D /* addon_config.mk in Resources */ = {isa = PBXBuildFile; fileRef = 9593AF60191A7B060061B02D /* addon_config.mk */; };
-		9593AF9C191A7B060061B02D /* Doxyfile in Resources */ = {isa = PBXBuildFile; fileRef = 9593AF62191A7B060061B02D /* Doxyfile */; };
-		9593AF9D191A7B060061B02D /* ByteBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF7C191A7B060061B02D /* ByteBuffer.cpp */; };
-		9593AF9E191A7B060061B02D /* ByteBufferUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF7D191A7B060061B02D /* ByteBufferUtils.cpp */; };
-		9593AF9F191A7B060061B02D /* Compression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF7E191A7B060061B02D /* Compression.cpp */; };
-		9593AFA0191A7B060061B02D /* DeviceFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF7F191A7B060061B02D /* DeviceFilter.cpp */; };
-		9593AFA1191A7B060061B02D /* DirectoryFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF80191A7B060061B02D /* DirectoryFilter.cpp */; };
-		9593AFA2191A7B060061B02D /* DirectoryUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF81191A7B060061B02D /* DirectoryUtils.cpp */; };
-		9593AFA3191A7B060061B02D /* DirectoryWatcherManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF82191A7B060061B02D /* DirectoryWatcherManager.cpp */; };
-		9593AFA4191A7B060061B02D /* Encoding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF83191A7B060061B02D /* Encoding.cpp */; };
-		9593AFA5191A7B060061B02D /* FileExtensionFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF84191A7B060061B02D /* FileExtensionFilter.cpp */; };
-		9593AFA6191A7B060061B02D /* HiddenFileFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF85191A7B060061B02D /* HiddenFileFilter.cpp */; };
-		9593AFA7191A7B060061B02D /* LinkFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF86191A7B060061B02D /* LinkFilter.cpp */; };
-		9593AFA8191A7B060061B02D /* PathFilterCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF87191A7B060061B02D /* PathFilterCollection.cpp */; };
-		9593AFA9191A7B060061B02D /* RegexPathFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF88191A7B060061B02D /* RegexPathFilter.cpp */; };
-		9593AFAA191A7B060061B02D /* SearchPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF89191A7B060061B02D /* SearchPath.cpp */; };
-		9593AFAB191A7B060061B02D /* DirectoryWatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF93191A7B060061B02D /* DirectoryWatcher.cpp */; };
-		9593AFAC191A7B060061B02D /* RecursiveDirectoryIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF94191A7B060061B02D /* RecursiveDirectoryIterator.cpp */; };
-		9593AFAD191A7B060061B02D /* RecursiveDirectoryIteratorStategies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9593AF95191A7B060061B02D /* RecursiveDirectoryIteratorStategies.cpp */; };
-		9593AFAE191A7B060061B02D /* ofxaddons_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 9593AF96191A7B060061B02D /* ofxaddons_thumbnail.png */; };
-		9593AFAF191A7B060061B02D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9593AF97191A7B060061B02D /* README.md */; };
 		95C5BC2B1965BE5E0073A3BC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 95C5BC191965BE5E0073A3BC /* .gitignore */; };
 		95C5BC2C1965BE5E0073A3BC /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C5BC1E1965BE5E0073A3BC /* Syphon.framework */; };
 		95C5BC2D1965BE5E0073A3BC /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C5BC211965BE5E0073A3BC /* SyphonNameboundClient.m */; };
@@ -434,50 +412,6 @@
 		9537DDFC19C3799B005472E9 /* CyrilNoiseWarp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CyrilNoiseWarp.h; path = Ops/CyrilNoiseWarp.h; sourceTree = "<group>"; };
 		9558676F19C74DCF009440AB /* CyrilPixelate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilPixelate.cpp; sourceTree = "<group>"; };
 		9558677019C74DCF009440AB /* CyrilPixelate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilPixelate.h; sourceTree = "<group>"; };
-		9593AF5F191A7B060061B02D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		9593AF60191A7B060061B02D /* addon_config.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = addon_config.mk; sourceTree = "<group>"; };
-		9593AF62191A7B060061B02D /* Doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
-		9593AF66191A7B060061B02D /* alphanum.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = alphanum.hpp; sourceTree = "<group>"; };
-		9593AF6B191A7B060061B02D /* AbstractDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractDataView.h; sourceTree = "<group>"; };
-		9593AF6C191A7B060061B02D /* AbstractTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractTypes.h; sourceTree = "<group>"; };
-		9593AF6D191A7B060061B02D /* ByteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ByteBuffer.h; sourceTree = "<group>"; };
-		9593AF6E191A7B060061B02D /* ByteBufferUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ByteBufferUtils.h; sourceTree = "<group>"; };
-		9593AF6F191A7B060061B02D /* Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compression.h; sourceTree = "<group>"; };
-		9593AF70191A7B060061B02D /* DeviceFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceFilter.h; sourceTree = "<group>"; };
-		9593AF71191A7B060061B02D /* DirectoryFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryFilter.h; sourceTree = "<group>"; };
-		9593AF72191A7B060061B02D /* DirectoryUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryUtils.h; sourceTree = "<group>"; };
-		9593AF73191A7B060061B02D /* DirectoryWatcherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryWatcherManager.h; sourceTree = "<group>"; };
-		9593AF74191A7B060061B02D /* Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encoding.h; sourceTree = "<group>"; };
-		9593AF75191A7B060061B02D /* FileExtensionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileExtensionFilter.h; sourceTree = "<group>"; };
-		9593AF76191A7B060061B02D /* HiddenFileFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HiddenFileFilter.h; sourceTree = "<group>"; };
-		9593AF77191A7B060061B02D /* LinkFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkFilter.h; sourceTree = "<group>"; };
-		9593AF78191A7B060061B02D /* PathFilterCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathFilterCollection.h; sourceTree = "<group>"; };
-		9593AF79191A7B060061B02D /* RegexPathFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexPathFilter.h; sourceTree = "<group>"; };
-		9593AF7A191A7B060061B02D /* SearchPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPath.h; sourceTree = "<group>"; };
-		9593AF7C191A7B060061B02D /* ByteBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBuffer.cpp; sourceTree = "<group>"; };
-		9593AF7D191A7B060061B02D /* ByteBufferUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteBufferUtils.cpp; sourceTree = "<group>"; };
-		9593AF7E191A7B060061B02D /* Compression.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Compression.cpp; sourceTree = "<group>"; };
-		9593AF7F191A7B060061B02D /* DeviceFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeviceFilter.cpp; sourceTree = "<group>"; };
-		9593AF80191A7B060061B02D /* DirectoryFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectoryFilter.cpp; sourceTree = "<group>"; };
-		9593AF81191A7B060061B02D /* DirectoryUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectoryUtils.cpp; sourceTree = "<group>"; };
-		9593AF82191A7B060061B02D /* DirectoryWatcherManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectoryWatcherManager.cpp; sourceTree = "<group>"; };
-		9593AF83191A7B060061B02D /* Encoding.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Encoding.cpp; sourceTree = "<group>"; };
-		9593AF84191A7B060061B02D /* FileExtensionFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileExtensionFilter.cpp; sourceTree = "<group>"; };
-		9593AF85191A7B060061B02D /* HiddenFileFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HiddenFileFilter.cpp; sourceTree = "<group>"; };
-		9593AF86191A7B060061B02D /* LinkFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinkFilter.cpp; sourceTree = "<group>"; };
-		9593AF87191A7B060061B02D /* PathFilterCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathFilterCollection.cpp; sourceTree = "<group>"; };
-		9593AF88191A7B060061B02D /* RegexPathFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RegexPathFilter.cpp; sourceTree = "<group>"; };
-		9593AF89191A7B060061B02D /* SearchPath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SearchPath.cpp; sourceTree = "<group>"; };
-		9593AF8E191A7B060061B02D /* DirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryWatcher.h; sourceTree = "<group>"; };
-		9593AF8F191A7B060061B02D /* RecursiveDirectoryIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecursiveDirectoryIterator.h; sourceTree = "<group>"; };
-		9593AF90191A7B060061B02D /* RecursiveDirectoryIteratorImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecursiveDirectoryIteratorImpl.h; sourceTree = "<group>"; };
-		9593AF91191A7B060061B02D /* RecursiveDirectoryIteratorStategies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecursiveDirectoryIteratorStategies.h; sourceTree = "<group>"; };
-		9593AF93191A7B060061B02D /* DirectoryWatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectoryWatcher.cpp; sourceTree = "<group>"; };
-		9593AF94191A7B060061B02D /* RecursiveDirectoryIterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecursiveDirectoryIterator.cpp; sourceTree = "<group>"; };
-		9593AF95191A7B060061B02D /* RecursiveDirectoryIteratorStategies.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecursiveDirectoryIteratorStategies.cpp; sourceTree = "<group>"; };
-		9593AF96191A7B060061B02D /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
-		9593AF97191A7B060061B02D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		9593AF99191A7B060061B02D /* ofxIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxIO.h; sourceTree = "<group>"; };
 		95C5BC191965BE5E0073A3BC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		95C5BC1E1965BE5E0073A3BC /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Syphon.framework; sourceTree = "<group>"; };
 		95C5BC201965BE5E0073A3BC /* SyphonNameboundClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonNameboundClient.h; sourceTree = "<group>"; };
@@ -942,178 +876,6 @@
 			name = FX;
 			sourceTree = "<group>";
 		};
-		9593AF5E191A7B060061B02D /* ofxIO */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF5F191A7B060061B02D /* .gitignore */,
-				9593AF60191A7B060061B02D /* addon_config.mk */,
-				9593AF61191A7B060061B02D /* docs */,
-				9593AF63191A7B060061B02D /* libs */,
-				9593AF96191A7B060061B02D /* ofxaddons_thumbnail.png */,
-				9593AF97191A7B060061B02D /* README.md */,
-				9593AF98191A7B060061B02D /* src */,
-			);
-			name = ofxIO;
-			path = ../../../addons/ofxIO;
-			sourceTree = "<group>";
-		};
-		9593AF61191A7B060061B02D /* docs */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF62191A7B060061B02D /* Doxyfile */,
-			);
-			path = docs;
-			sourceTree = "<group>";
-		};
-		9593AF63191A7B060061B02D /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF64191A7B060061B02D /* alphanum */,
-				9593AF67191A7B060061B02D /* ofxIO */,
-				9593AF8A191A7B060061B02D /* Poco */,
-			);
-			path = libs;
-			sourceTree = "<group>";
-		};
-		9593AF64191A7B060061B02D /* alphanum */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF65191A7B060061B02D /* include */,
-			);
-			path = alphanum;
-			sourceTree = "<group>";
-		};
-		9593AF65191A7B060061B02D /* include */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF66191A7B060061B02D /* alphanum.hpp */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		9593AF67191A7B060061B02D /* ofxIO */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF68191A7B060061B02D /* include */,
-				9593AF7B191A7B060061B02D /* src */,
-			);
-			path = ofxIO;
-			sourceTree = "<group>";
-		};
-		9593AF68191A7B060061B02D /* include */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF69191A7B060061B02D /* ofx */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		9593AF69191A7B060061B02D /* ofx */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF6A191A7B060061B02D /* IO */,
-			);
-			path = ofx;
-			sourceTree = "<group>";
-		};
-		9593AF6A191A7B060061B02D /* IO */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF6B191A7B060061B02D /* AbstractDataView.h */,
-				9593AF6C191A7B060061B02D /* AbstractTypes.h */,
-				9593AF6D191A7B060061B02D /* ByteBuffer.h */,
-				9593AF6E191A7B060061B02D /* ByteBufferUtils.h */,
-				9593AF6F191A7B060061B02D /* Compression.h */,
-				9593AF70191A7B060061B02D /* DeviceFilter.h */,
-				9593AF71191A7B060061B02D /* DirectoryFilter.h */,
-				9593AF72191A7B060061B02D /* DirectoryUtils.h */,
-				9593AF73191A7B060061B02D /* DirectoryWatcherManager.h */,
-				9593AF74191A7B060061B02D /* Encoding.h */,
-				9593AF75191A7B060061B02D /* FileExtensionFilter.h */,
-				9593AF76191A7B060061B02D /* HiddenFileFilter.h */,
-				9593AF77191A7B060061B02D /* LinkFilter.h */,
-				9593AF78191A7B060061B02D /* PathFilterCollection.h */,
-				9593AF79191A7B060061B02D /* RegexPathFilter.h */,
-				9593AF7A191A7B060061B02D /* SearchPath.h */,
-			);
-			path = IO;
-			sourceTree = "<group>";
-		};
-		9593AF7B191A7B060061B02D /* src */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF7C191A7B060061B02D /* ByteBuffer.cpp */,
-				9593AF7D191A7B060061B02D /* ByteBufferUtils.cpp */,
-				9593AF7E191A7B060061B02D /* Compression.cpp */,
-				9593AF7F191A7B060061B02D /* DeviceFilter.cpp */,
-				9593AF80191A7B060061B02D /* DirectoryFilter.cpp */,
-				9593AF81191A7B060061B02D /* DirectoryUtils.cpp */,
-				9593AF82191A7B060061B02D /* DirectoryWatcherManager.cpp */,
-				9593AF83191A7B060061B02D /* Encoding.cpp */,
-				9593AF84191A7B060061B02D /* FileExtensionFilter.cpp */,
-				9593AF85191A7B060061B02D /* HiddenFileFilter.cpp */,
-				9593AF86191A7B060061B02D /* LinkFilter.cpp */,
-				9593AF87191A7B060061B02D /* PathFilterCollection.cpp */,
-				9593AF88191A7B060061B02D /* RegexPathFilter.cpp */,
-				9593AF89191A7B060061B02D /* SearchPath.cpp */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		9593AF8A191A7B060061B02D /* Poco */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF8B191A7B060061B02D /* Foundation */,
-				9593AF92191A7B060061B02D /* src */,
-			);
-			path = Poco;
-			sourceTree = "<group>";
-		};
-		9593AF8B191A7B060061B02D /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF8C191A7B060061B02D /* include */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		9593AF8C191A7B060061B02D /* include */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF8D191A7B060061B02D /* Poco */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		9593AF8D191A7B060061B02D /* Poco */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF8E191A7B060061B02D /* DirectoryWatcher.h */,
-				9593AF8F191A7B060061B02D /* RecursiveDirectoryIterator.h */,
-				9593AF90191A7B060061B02D /* RecursiveDirectoryIteratorImpl.h */,
-				9593AF91191A7B060061B02D /* RecursiveDirectoryIteratorStategies.h */,
-			);
-			path = Poco;
-			sourceTree = "<group>";
-		};
-		9593AF92191A7B060061B02D /* src */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF93191A7B060061B02D /* DirectoryWatcher.cpp */,
-				9593AF94191A7B060061B02D /* RecursiveDirectoryIterator.cpp */,
-				9593AF95191A7B060061B02D /* RecursiveDirectoryIteratorStategies.cpp */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		9593AF98191A7B060061B02D /* src */ = {
-			isa = PBXGroup;
-			children = (
-				9593AF99191A7B060061B02D /* ofxIO.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		95C5BC181965BE5E0073A3BC /* ofxSyphon */ = {
 			isa = PBXGroup;
 			children = (
@@ -1220,7 +982,6 @@
 			children = (
 				95154C9219BA61E30084696C /* ofxPostProcessing */,
 				95C5BC181965BE5E0073A3BC /* ofxSyphon */,
-				9593AF5E191A7B060061B02D /* ofxIO */,
 				480A780D8D0308AE4A368801 /* ofxGui */,
 				E6053AB7FEC63D5F83825B88 /* ofxOsc */,
 				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
@@ -1442,14 +1203,9 @@
 				95154CD019BA61E40084696C /* screenshot_toon.png in Resources */,
 				95C5BC2B1965BE5E0073A3BC /* .gitignore in Resources */,
 				95154CCF19BA61E40084696C /* screenshot_godray.png in Resources */,
-				9593AF9C191A7B060061B02D /* Doxyfile in Resources */,
-				9593AFAE191A7B060061B02D /* ofxaddons_thumbnail.png in Resources */,
-				9593AF9B191A7B060061B02D /* addon_config.mk in Resources */,
-				9593AFAF191A7B060061B02D /* README.md in Resources */,
 				9512D4F3183D23CA0078256D /* cyril-logo.icns in Resources */,
 				95C5BC2E1965BE5E0073A3BC /* README.md in Resources */,
 				95154CCE19BA61E40084696C /* screenshot.png in Resources */,
-				9593AF9A191A7B060061B02D /* .gitignore in Resources */,
 				95154CCD19BA61E40084696C /* readme.md in Resources */,
 				9512D4F5183D23F70078256D /* DroidSansMono.ttf in Resources */,
 			);
@@ -1491,8 +1247,6 @@
 				9512D4ED183D1F110078256D /* Palette.cpp in Sources */,
 				9512D4DB183D1F110078256D /* CyrilLineOp.cpp in Sources */,
 				9537DDEC19C2686E005472E9 /* CyrilKaleidoscope.cpp in Sources */,
-				9593AFA5191A7B060061B02D /* FileExtensionFilter.cpp in Sources */,
-				9593AFA8191A7B060061B02D /* PathFilterCollection.cpp in Sources */,
 				9512D4C7183D1F110078256D /* CyrilRandFun.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
 				95C5BC2D1965BE5E0073A3BC /* SyphonNameboundClient.m in Sources */,
@@ -1502,9 +1256,7 @@
 				483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */,
 				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,
 				9512D4EA183D1F110078256D /* CyrilSphereOp.cpp in Sources */,
-				9593AFAD191A7B060061B02D /* RecursiveDirectoryIteratorStategies.cpp in Sources */,
 				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
-				9593AF9F191A7B060061B02D /* Compression.cpp in Sources */,
 				9512D4C9183D1F110078256D /* CyrilTanFun.cpp in Sources */,
 				95154CD719BA61E40084696C /* EdgePass.cpp in Sources */,
 				95154CE319BA61E40084696C /* RGBShiftPass.cpp in Sources */,
@@ -1514,9 +1266,7 @@
 				95154CD219BA61E40084696C /* BloomPass.cpp in Sources */,
 				9512D4CA183D1F110078256D /* CyrilWaveFun.cpp in Sources */,
 				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
-				9593AF9E191A7B060061B02D /* ByteBufferUtils.cpp in Sources */,
 				9512D4E6183D1F110078256D /* CyrilScaleOp.cpp in Sources */,
-				9593AFA6191A7B060061B02D /* HiddenFileFilter.cpp in Sources */,
 				95C5BC301965BE5E0073A3BC /* ofxSyphonServer.mm in Sources */,
 				1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */,
 				95154CD119BA61E40084696C /* BleachBypassPass.cpp in Sources */,
@@ -1527,21 +1277,17 @@
 				9512D4BF183D1F110078256D /* CyrilCosFun.cpp in Sources */,
 				95154CD919BA61E40084696C /* FxaaPass.cpp in Sources */,
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
-				9593AFA4191A7B060061B02D /* Encoding.cpp in Sources */,
-				9593AFA3191A7B060061B02D /* DirectoryWatcherManager.cpp in Sources */,
 				9512D4B9183D1F110078256D /* Cyril.cpp in Sources */,
 				9512D4D2183D1F110078256D /* CyrilBlink.cpp in Sources */,
 				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
 				9512D4E9183D1F110078256D /* CyrilSphereDetailOp.cpp in Sources */,
 				4ADB88E2FB52E76A471065DE /* ofxOscParameterSync.cpp in Sources */,
-				9593AFAC191A7B060061B02D /* RecursiveDirectoryIterator.cpp in Sources */,
 				640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */,
 				95C5BC311965BE5E0073A3BC /* ofxSyphonServerDirectory.mm in Sources */,
 				95154CDB19BA61E40084696C /* HorizontalTiltShifPass.cpp in Sources */,
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
 				9512D4E5183D1F110078256D /* CyrilRotateOp.cpp in Sources */,
 				9512D4D6183D1F110078256D /* CyrilFillOp.cpp in Sources */,
-				9593AFAA191A7B060061B02D /* SearchPath.cpp in Sources */,
 				9512D4C3183D1F110078256D /* CyrilLerpFun.cpp in Sources */,
 				9512D4C1183D1F110078256D /* CyrilFun.cpp in Sources */,
 				9512D4C6183D1F110078256D /* CyrilPaletteFun.cpp in Sources */,
@@ -1551,7 +1297,6 @@
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
 				9512D4D8183D1F110078256D /* CyrilImgOp.cpp in Sources */,
 				9512D4CD183D1F110078256D /* CyrilAnimation.cpp in Sources */,
-				9593AFA7191A7B060061B02D /* LinkFilter.cpp in Sources */,
 				9512D4C8183D1F110078256D /* CyrilSinFun.cpp in Sources */,
 				9512D4D3183D1F110078256D /* CyrilBoxOp.cpp in Sources */,
 				95154CE519BA61E40084696C /* SSAOPass.cpp in Sources */,
@@ -1567,25 +1312,20 @@
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
 				A29D8C96AE042ECEAA1BD4F3 /* NetworkingUtilsWin.cpp in Sources */,
-				9593AFAB191A7B060061B02D /* DirectoryWatcher.cpp in Sources */,
 				28090DEB5109115003E8F1C5 /* UdpSocketWin.cpp in Sources */,
 				9512D4E8183D1F110078256D /* CyrilShapeList.cpp in Sources */,
 				9512D4E1183D1F110078256D /* CyrilPegOp.cpp in Sources */,
 				95154CDE19BA61E40084696C /* LUTPass.cpp in Sources */,
 				9512D4E7183D1F110078256D /* CyrilShape.cpp in Sources */,
 				9512D4EC183D1F110078256D /* cyrilApp.cpp in Sources */,
-				9593AF9D191A7B060061B02D /* ByteBuffer.cpp in Sources */,
 				95154CE419BA61E40084696C /* RimHighlightingPass.cpp in Sources */,
 				95154CE819BA61E40084696C /* ZoomBlurPass.cpp in Sources */,
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
-				9593AFA1191A7B060061B02D /* DirectoryFilter.cpp in Sources */,
-				9593AFA0191A7B060061B02D /* DeviceFilter.cpp in Sources */,
 				9512D4C4183D1F110078256D /* CyrilMapFun.cpp in Sources */,
 				9512D4E4183D1F110078256D /* CyrilRectOp.cpp in Sources */,
 				9512D4BC183D1F110078256D /* CyrilOp.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
 				95154CDC19BA61E40084696C /* KaleidoscopePass.cpp in Sources */,
-				9593AFA2191A7B060061B02D /* DirectoryUtils.cpp in Sources */,
 				9537DDFD19C3799B005472E9 /* CyrilNoiseWarp.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
 				951F60D419C771FD00FC0F28 /* CyrilBloom.cpp in Sources */,
@@ -1598,7 +1338,6 @@
 				9512D4CB183D1F110078256D /* CyrilColorLoad.cpp in Sources */,
 				9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */,
 				9512D4BD183D1F110078256D /* CyrilParser.cpp in Sources */,
-				9593AFA9191A7B060061B02D /* RegexPathFilter.cpp in Sources */,
 				5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */,
 				9512D4DE183D1F110078256D /* CyrilPalette.cpp in Sources */,
 				A86D7323CE1A9450906A91DD /* fft.cpp in Sources */,
@@ -1734,7 +1473,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					/Users/darren/openFrameworks/of_v0.8.1_osx_release/addons/ofxSyphon/libs/Syphon/lib/osx,
+					/Users/darren/dev/of_v0.8.4_osx_release/addons/ofxSyphon/libs/Syphon/lib/osx,
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1842,7 +1581,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					/Users/darren/openFrameworks/of_v0.8.1_osx_release/addons/ofxSyphon/libs/Syphon/lib/osx,
+					/Users/darren/dev/of_v0.8.4_osx_release/addons/ofxSyphon/libs/Syphon/lib/osx,
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
