@@ -1,6 +1,55 @@
 #include "cyrilApp.h"
 
 
+#include <arpa/inet.h>
+#include <net/if.h>
+#include <ifaddrs.h>
+
+string getIpAddress()
+{
+    string output = "NOT FOUND";
+    struct ifaddrs *myaddrs;
+    struct ifaddrs *ifa;
+    struct sockaddr_in *s4;
+    int status;
+    
+    char buf[64];
+    
+    status = getifaddrs(&myaddrs);
+    if (status != 0)
+    {
+        perror("getifaddrs");
+        
+    }
+    
+    for (ifa = myaddrs; ifa != NULL; ifa = ifa->ifa_next)
+    {
+        if (ifa->ifa_addr == NULL) continue;
+        if ((ifa->ifa_flags & IFF_UP) == 0) continue;
+        
+        if (ifa->ifa_addr->sa_family == AF_INET)
+        {
+            s4 = (struct sockaddr_in *)(ifa->ifa_addr);
+            if (inet_ntop(ifa->ifa_addr->sa_family, (void *)&(s4->sin_addr), buf, sizeof(buf)) == NULL)
+            {
+                printf("%s: inet_ntop failed!\n", ifa->ifa_name);
+            }
+            else
+            {
+                if(ofToString(ifa->ifa_name) == "en0")
+                {
+                    output = ofToString(buf);
+                }
+            }
+        }
+    }
+    
+    freeifaddrs(myaddrs);
+    return output;
+}
+
+
+
 //--------------------------------------------------------------
 void cyrilApp::setup(){
   doResetTimers = true;
@@ -92,6 +141,13 @@ void cyrilApp::setup(){
   
   (*_state.sym)[REG_PARTICLE_HEALTH] = 1;
   (*_state.sym)[REG_PARTICLE_DECAY] = 0.1;
+    
+    (*_state.sym)[OSC_X] = 0;
+    (*_state.sym)[OSC_Y] = 0;
+    (*_state.sym)[OSC_F1] = 0;
+    (*_state.sym)[OSC_F2] = 0;
+    (*_state.sym)[OSC_F3] = 0;
+    (*_state.sym)[OSC_F4] = 0;
   
   // Reserve some space for Particle System
   _state.ps->reserve(2000);
@@ -138,8 +194,8 @@ void cyrilApp::setup(){
   //mClient.set("","Cyril Server");
   
 	// listen on the given port
-	//cout << "listening for osc messages on port " << PORT << endl;
-	//receiver.setup(PORT);
+	cout << "listening for osc messages on " + getIpAddress() + ":" << PORT << endl;
+	receiver.setup(PORT);
   
   // Configure the ofxPostProcessing effects
   _state.post = ofxPostProcessing();
@@ -219,21 +275,60 @@ void cyrilApp::update(){
   }
   ofRemove(*_state.ps, Particle::isDead);
   
-  /*
+  
 	// check for waiting OSC messages
 	while(receiver.hasWaitingMessages()){
 		// get the next message
 		ofxOscMessage m;
-		receiver.getNextMessage(&m);
-    
-		// check for mouse moved message
-		if(m.getAddress() == "/buffer/0"){
-			string msg_string;
-			msg_string = m.getAddress();
-      cout << msg_string << endl;
-    }
+        receiver.getNextMessage(&m);
+        // Check for the toggle messages
+        bool msgProcessed = false;
+        for (int i = 1; i < 9; ++i) {
+            if (m.getAddress() == ("/1/toggle" + ofToString(i))) {
+                cout << "Process message " <<  ("/1/toggle" + ofToString(i)) << endl;
+                if (m.getArgAsFloat(0) == 0) {
+                    toggleScript(i, false);
+                }
+                else if (m.getArgAsFloat(0) == 1) {
+                    toggleScript(i, true);
+                }
+                msgProcessed = true;
+            }
+        }
+        if (m.getAddress() == "/1/xy1") {
+            (*_state.sym)[OSC_X] = m.getArgAsFloat(0);
+            (*_state.sym)[OSC_Y] = m.getArgAsFloat(1);
+            msgProcessed = true;
+        }
+        else if (m.getAddress() == "/1/fader1") {
+            (*_state.sym)[OSC_F1] = m.getArgAsFloat(0);
+            msgProcessed = true;
+        }
+        else if (m.getAddress() == "/1/fader2") {
+            (*_state.sym)[OSC_F2] = m.getArgAsFloat(0);
+            msgProcessed = true;
+        }
+        else if (m.getAddress() == "/1/fader3") {
+            (*_state.sym)[OSC_F3] = m.getArgAsFloat(0);
+            msgProcessed = true;
+        }
+        else if (m.getAddress() == "/1/fader4") {
+            (*_state.sym)[OSC_F4] = m.getArgAsFloat(0);
+            msgProcessed = true;
+        }
+        
+        if (!msgProcessed) {
+            cout << "Unknown OSC message " << m.getAddress() << endl;
+        }
+        
+        /*
+        string msg_string;
+        msg_string = m.getAddress();
+        cout << msg_string << endl;
+        cout << m.getArgAsFloat(0);
+        */
   }
-  */
+  
 }
 
 //--------------------------------------------------------------
@@ -397,6 +492,8 @@ void cyrilApp::pauseProgram(void * _o) {
     ((cyrilApp *)_o)->running[whichEditor] = !((cyrilApp *)_o)->running[whichEditor];
   }
 }
+
+
 void cyrilApp::runScript(void * _o) {
   int whichEditor = ((cyrilApp *)_o)->editor.currentBuffer;
 #ifdef DEBUG_PRINT
@@ -425,6 +522,17 @@ std::string removeExtension(const std::string filename) {
   size_t lastdot = filename.find_last_of(".");
   if (lastdot == std::string::npos) return filename;
   return filename.substr(0, lastdot);
+}
+
+void cyrilApp::toggleScript(int i, bool r) {
+    if (r) {
+        editor.loadFile("code/" + ofToString(i) + ".cy", i);
+        editor.currentBuffer = i;
+        runScript(this);
+    }
+    else {
+        running[i] = false;
+    }
 }
 
 void cyrilApp::reloadFileBuffer(std::string filePath) {

@@ -112,5 +112,12 @@
 #define REG_COLOR_BLACK 33
 #define REG_COLOR_RED 34
 
+#define OSC_X 68
+#define OSC_Y 69
+#define OSC_F1 70
+#define OSC_F2 71
+#define OSC_F3 72
+#define OSC_F4 73
+
 
 #endif

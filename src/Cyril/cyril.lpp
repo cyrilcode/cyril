@@ -54,7 +54,7 @@ end            { return END; }
 fft|lerp|rgb|hsb|hsv|wave|sin|cos|tan|noise|rand|map|pal { yylval.sval = strdup(yytext);
   return FUNCTION;
 }
-vert|img|box|ball|sphere|line|rect|cone|peg|grid|move { yylval.sval = strdup(yytext);
+die|vert|img|box|ball|sphere|line|rect|cone|peg|grid|move { yylval.sval = strdup(yytext);
   return KEYWORD;
 }
 debug|color|background|ballDetail|sphereDetail|light { yylval.sval = strdup(yytext);

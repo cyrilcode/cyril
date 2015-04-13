@@ -29,7 +29,8 @@ class cyrilApp : public ofBaseApp{
   
 	//ofxSyphonServer mainOutputSyphonServer;
 	//ofxSyphonClient mClient;
-  //ofxOscReceiver receiver;
+    
+  ofxOscReceiver receiver;
   
   //ofxXmlSettings settings;
   string fileName;
@@ -100,6 +101,7 @@ public:
   static void resetTimers(void *);
   static void pauseProgram(void *);
   static void runScript(void *);
+    void toggleScript(int i, bool r);
   
 
 };

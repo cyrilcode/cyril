@@ -24,6 +24,7 @@
 #include "CyrilTile.h"
 
 #include "CyrilOp.h"
+#include "CyrilDie.h"
 #include "CyrilBoxOp.h"
 #include "CyrilMoveOp.h"
 #include "CyrilRotateOp.h"
@@ -116,7 +117,12 @@ int regFind(string _s) {
   if ("KICK" == _s) return REG_BEAT_KICK;
   if ("SNARE" == _s) return REG_BEAT_SNARE;
   if ("HIHAT" == _s) return REG_BEAT_HIHAT;
-  if ("VOL" == _s) return REG_BEAT_MAGNITUDE;
+  if ("PADX" == _s) return OSC_X;
+  if ("PADY" == _s) return OSC_Y;
+  if ("F1" == _s) return OSC_F1;
+  if ("F2" == _s) return OSC_F2;
+  if ("F3" == _s) return OSC_F3;
+  if ("F4" == _s) return OSC_F4;
   
   if (symTab.find(_s) == symTab.end()) {
     int loc = symTab.size() + REG_COUNT;
@@ -156,6 +162,7 @@ Cyril * cyrilOpFactory(const char * _s, Cyril * _c) {
   if (strncmp("fxNW", _s, 4) == 0) return new CyrilNoiseWarp(_c);
   if (strncmp("fxP", _s, 3) == 0) return new CyrilPixelate(_c);
   if (strncmp("fxB", _s, 3) == 0) return new CyrilBloom(_c);
+  if (strncmp("die", _s, 3) == 0) return new CyrilDie(_c);
   return new CyrilOp(_c);
 }
 

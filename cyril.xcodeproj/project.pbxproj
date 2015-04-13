@@ -412,6 +412,7 @@
 		9537DDFC19C3799B005472E9 /* CyrilNoiseWarp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CyrilNoiseWarp.h; path = Ops/CyrilNoiseWarp.h; sourceTree = "<group>"; };
 		9558676F19C74DCF009440AB /* CyrilPixelate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CyrilPixelate.cpp; sourceTree = "<group>"; };
 		9558677019C74DCF009440AB /* CyrilPixelate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyrilPixelate.h; sourceTree = "<group>"; };
+		95B9AA961ADBE0DE0013B533 /* CyrilDie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CyrilDie.h; sourceTree = "<group>"; };
 		95C5BC191965BE5E0073A3BC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		95C5BC1E1965BE5E0073A3BC /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Syphon.framework; sourceTree = "<group>"; };
 		95C5BC201965BE5E0073A3BC /* SyphonNameboundClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonNameboundClient.h; sourceTree = "<group>"; };
@@ -766,6 +767,7 @@
 				9512D4AF183D1F100078256D /* CyrilSphereOp.h */,
 				9512D4B0183D1F110078256D /* CyrilTile.cpp */,
 				9512D4B1183D1F110078256D /* CyrilTile.h */,
+				95B9AA961ADBE0DE0013B533 /* CyrilDie.h */,
 			);
 			path = Ops;
 			sourceTree = "<group>";
