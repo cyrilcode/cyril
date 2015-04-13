@@ -167,7 +167,7 @@ void cyrilApp::update(){
             if (t > modTimes[i]) {
                 modTimes[i] = t;
                 reloadFileBuffer("code/" + ofToString(i) + ".cy");
-            }¡
+            }
         }
         else {
             //cout << "file " + ofToString(i) << ".cy not found" << endl;
