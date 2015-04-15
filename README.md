@@ -18,7 +18,7 @@ External editor support has been added in recent beta versions so you can projec
 
 ## Requirements
 
-Cyril is built against version 0.8.1 of openFrameworks
+Cyril is built against version 0.8.4 of openFrameworks
 
  * http://www.openframeworks.cc/download/
 
