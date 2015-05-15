@@ -1,14 +1,27 @@
-ballDetail 0.1
-fill 
-color pink,200
-DECAY: 0.03
-rotate FRAME / 10,0,0,1
-do 16 times
-particle 0.1,0,0,0.01 * wave(1000)
- color HEALTH * 255,100,0,200
- ball 0.5 * (1 - HEALTH)
-end
-rotate 22.5
-end
 
 
+rotate
+
+a: a + 0.01
+b: b + 0.01
+c: c + 0.01
+
+i: noise(a) * 0.1
+j: noise(1,b) * 0.05
+k: noise(1,1,c) * 0.05
+
+do 2 times
+do 4 times
+rotate 90
+particle 0, i,j,k
+ color white,(1 - HEALTH) * 255
+ if HEALTH < 0.7 box HEALTH
+end
+end
+i: 0 - i
+j: 0 - j
+k: 0 - k
+end
+
+//fxK 1 
+//fxNW

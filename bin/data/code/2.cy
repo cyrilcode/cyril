@@ -1,13 +1,22 @@
-palette $p
- 10 yellow
- 10 red
+
+
+rotate TIME / 4
+
+do 8 times
+rotate FRAME
+particle 0.01,wave(1000) * 0.05,wave(500) * 0.05,0
+rotate HEALTH * 360,0,-1,0
+color lerp(#ff0000,#ff00ff,HEALTH),175
+do 2 times
+rotate
+shape
+ vert 0,0
+ vert 0.45,0.75
+ vert -0.45,0.75
+ vert 0,0
 end
-do 10 times
-if KICK 
- i: i + 0.1
 end
-x: (noise(i) * 10) - 5
-move x, 0 
-color lerp($p, (x + 5) / 10)
-box 1,10,0
 end
+end
+
+

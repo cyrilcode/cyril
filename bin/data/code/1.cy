@@ -1,6 +1,6 @@
 light 0,-10,10
 
-rotate
+//rotate
 //stroke
 fill
 DECAY: 0.1
