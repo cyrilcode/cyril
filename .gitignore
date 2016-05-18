@@ -1,6 +1,9 @@
+# ignore openFrameworks
+/openFrameworks
+/of_*
 
 # ignore IDE files
-.idea
+/.idea
 
 # ignore OS generated files
 .DS_Store
