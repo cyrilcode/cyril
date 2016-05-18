@@ -1,11 +1,8 @@
-bin/*.app
-cyril.xcodeproj/project.xcworkspace/xcshareddata*
-cyril.xcodeproj/project.xcworkspace/xcuserdata/*
-cyril.xcodeproj/project.xcworkspace/xcuserdata/darren.xcuserdatad/UserInterfaceState.xcuserstate
-*darren.xcuserdatad*
 
-# OS generated files #
-######################
+# ignore IDE files
+.idea
+
+# ignore OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -13,5 +10,4 @@ cyril.xcodeproj/project.xcworkspace/xcuserdata/darren.xcuserdatad/UserInterfaceS
 .Trashes
 ehthumbs.db
 Thumbs.db
-
 
