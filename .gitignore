@@ -4,6 +4,9 @@ cyril.xcodeproj/project.xcworkspace/xcuserdata/*
 cyril.xcodeproj/project.xcworkspace/xcuserdata/darren.xcuserdatad/UserInterfaceState.xcuserstate
 *darren.xcuserdatad*
 
+/.idea
+/of_*
+
 # OS generated files #
 ######################
 .DS_Store
