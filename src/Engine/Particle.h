@@ -29,7 +29,7 @@ public:
   origin(_o), velocity(_v), acceleration(_a), health(_h), decay(_d), shape(_s) {
       
       _sub_state.stk = new stack<float>;
-      _sub_state.ms = new ofMatrixStack(*ofGetWindowPtr());
+      _sub_state.ms = new ofMatrixStack(ofGetWindowPtr());
       _sub_state.ps = new vector<Particle*>;
       _sub_state.sym = new map<int, float>;
       _sub_state.cs = new map<int, Palette *>;

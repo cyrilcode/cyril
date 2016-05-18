@@ -25,7 +25,7 @@ public:
   map<int, ofImage*> * img;
   CyrilState * parent;
   ofLight * light;
-  ofxPostProcessing post;
+//  ofxPostProcessing post;
   KaleidoscopePass::Ptr kaleido;
   NoiseWarpPass::Ptr noisewarp;
   PixelatePass::Ptr pixelate;

@@ -1,8 +1,18 @@
 # Cyril - Live Coding
 
-**CMake:** This is the CMake branch that has been created for the cross-platform efforts.
+## CMAKE VERSION
+
+This is the CMake branch that has been created for the cross-platform efforts.
 Hopefully, by using ideas from [this example project](https://github.com/judepereira/44a) we
 will be able to use CMake to build oF and Cyril.
+
+Download openFrameworks, update OF_DIRECTORY in CMakeLists.txt if necessary.
+
+
+***
+
+
+## Cyril, the old readme file...
 
 The Cyril programming language is designed for fast prototyping of visualisations and live coding visuals.
 

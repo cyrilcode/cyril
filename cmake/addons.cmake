@@ -1,11 +1,9 @@
-file(GLOB MSA_OPENCL "${OF_DIRECTORY}/addons/ofxMSAOpenCL/src/*.cpp")
-set(HEADER_MSA_OPENCL "${OF_DIRECTORY}/addons/ofxMSAOpenCL/src")
 
-file(GLOB OFX_CSV "${OF_DIRECTORY}/addons/ofxCsv/src/*.cpp")
-set(HEADER_OFX_CSV "${OF_DIRECTORY}/addons/ofxCsv/src")
+file(GLOB OFX_XMLSETTINGS "${OF_DIRECTORY}/addons/ofxXmlSettings/src/*.cpp" "${OF_DIRECTORY}/addons/ofxXmlSettings/libs/*.cpp")
+set(HEADER_OFX_XMLSETTINGS "${OF_DIRECTORY}/addons/ofxXmlSettings/src" "${OF_DIRECTORY}/addons/ofxXmlSettings/libs")
 
-set(ADDON_SOURCE_FILES ${MSA_OPENCL} ${OFX_CSV})
-set(OF_ADDON_HEADERS ${HEADER_MSA_OPENCL} ${HEADER_OFX_CSV})
+set(ADDON_SOURCE_FILES ${OFX_XMLSETTINGS})
+set(OF_ADDON_HEADERS ${HEADER_OFX_XMLSETTINGS})
 
 
 find_library(opencl_lib OpenCL)

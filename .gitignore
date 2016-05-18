@@ -2,6 +2,9 @@
 /openFrameworks
 /of_*
 
+# ignore build files
+/bin
+
 # ignore IDE files
 /.idea
 

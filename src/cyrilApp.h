@@ -9,7 +9,7 @@
 #include "ofxEditor.h"
 #include "ofxBeat.h"
 
-#include "ofxSyphon.h"
+//#include "ofxSyphon.h"
 
 #include "ofxPostProcessing.h"
 #define FX_KALEIDOSCOPE 0
@@ -17,10 +17,11 @@
 #define FX_PIXELATE 2
 #define FX_BLOOM 3
 
-#include "ofxOsc.h"
+//#include "ofxOsc.h"
 // listen on port 12345
 #define PORT 12345
 
+#include "Poco/Timestamp.h"
 
 class cyrilApp : public ofBaseApp{
   
@@ -30,14 +31,16 @@ class cyrilApp : public ofBaseApp{
 	//ofxSyphonServer mainOutputSyphonServer;
 	//ofxSyphonClient mClient;
     
-  ofxOscReceiver receiver;
+//  ofxOscReceiver receiver;
   
   //ofxXmlSettings settings;
   string fileName;
   
   Cyril *prog[10];
-  Poco::Timestamp modTimes[10];
-  bool running[10];
+
+    Poco::Timestamp modTimes[10];
+
+    bool running[10];
   bool error[10];
   
   CyrilState _state;
