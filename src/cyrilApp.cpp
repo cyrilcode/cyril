@@ -177,10 +177,10 @@ void cyrilApp::setup(){
   
   (*_state.sym)[REG_FRAME] = 0;
   
-  edBuf.allocate();
-  edBuf.begin();
-  ofClear(0,0,0,0);
-  edBuf.end();
+//  edBuf.allocate();
+//  edBuf.begin();
+//  ofClear(0,0,0,0);
+//  edBuf.end();
   
   ofEnableAlphaBlending();
   ofEnableAntiAliasing();

@@ -48,7 +48,7 @@ class cyrilApp : public ofBaseApp{
   int currentProg;
   bool reportError;
 
-  ofFbo edBuf;
+//  ofFbo edBuf;
 
   bool lightsOn;
   bool fxOn;
