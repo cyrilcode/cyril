@@ -22,7 +22,7 @@ CyrilPalette::CyrilPalette(int _l, Cyril* _p) : loc(_l) {
     palette = new Palette();
     CyrilState _state;
     _state.stk = new stack<float>;
-    _state.ms = new ofMatrixStack(*ofGetWindowPtr());
+    _state.ms = new ofMatrixStack(ofGetWindowPtr());
     _state.ps = new vector<Particle*>;
     _state.sym = new map<int, float>;
     _state.cs = new map<int, Palette *>;
