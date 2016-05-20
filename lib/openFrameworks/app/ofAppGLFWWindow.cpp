@@ -1028,6 +1028,17 @@ void ofAppGLFWWindow::error_cb(int errorCode, const char* errorDescription){
 
 //------------------------------------------------------------
 void ofAppGLFWWindow::keyboard_cb(GLFWwindow* windowP_, int keycode, int scancode, unsigned int codepoint, int action, int mods) {
+	//cout << action << ":" << GLFW_PRESS << "-w!" << keycode << endl;
+
+	cout << "GLFW_PRESS = " << GLFW_PRESS << endl;
+	cout << "GLFW_REPEAT = " << GLFW_REPEAT << endl;
+	cout << "GLFW_RELEASE = " << GLFW_RELEASE << endl;
+	cout << "key = " << keycode << endl;
+	cout << "scancode = " << scancode << endl;
+	cout << "codepoint = " << codepoint << endl;
+	cout << "action = " << action << endl;
+	cout << "mods = " << mods << endl;
+
 	int key;
 	switch (keycode) {
 		case GLFW_KEY_ESCAPE:

@@ -174,7 +174,8 @@ private:
 	static void 	keyboard_cb(GLFWwindow* windowP_, int key, int scancode, unsigned int codepoint, int action, int mods);
 	static void 	keyboard_cb(GLFWwindow* windowP_, int key, int scancode, int action, int mods)
 	{
-		keyboard_cb(windowP_, key, scancode, (unsigned int) key, action, mods);
+		// swap order of mods and action? eh?
+		keyboard_cb(windowP_, key, scancode, (unsigned int) action, mods, 0);
 	};
 	static void 	resize_cb(GLFWwindow* windowP_, int w, int h);
 	static void 	exit_cb(GLFWwindow* windowP_);
