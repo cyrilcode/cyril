@@ -2,7 +2,7 @@
 // #define CYRIL_DEBUG
 
 #include "ofMain.h"
-#include "ofxXmlSettings.h"
+//#include "ofxXmlSettings.h"
 #include "Particle.h"
 #include "CyrilParser.h"
 
