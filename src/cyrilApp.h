@@ -69,7 +69,7 @@ class cyrilApp : public ofBaseApp{
   
 public:
   
-  cyrilApp(): editor(10, "../Resources/DroidSansMono.ttf") {}
+  cyrilApp(): editor(10, "DroidSansMono.ttf") {}
   
   void setup();
   void update();

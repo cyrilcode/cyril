@@ -389,7 +389,7 @@ void EditorBuffer::updateShapes() {
   bounds = ofRectangle(0,0,0,0);
   for (vector<ofTTFCharacter>::iterator i = shapes.begin(); i < shapes.end(); ++i) {
     //(*i).draw();
-    for (vector<ofPolyline>::iterator j = (*i).getOutline().begin(); j < (*i).getOutline().end(); ++j) {
+    for (vector<ofPolyline>::const_iterator j = (*i).getOutline().begin(); j < (*i).getOutline().end(); ++j) {
       bounds.growToInclude((*j).getBoundingBox());
     }
   }

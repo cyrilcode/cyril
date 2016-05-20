@@ -57,7 +57,7 @@ void cyrilApp::setup(){
   ofSoundStreamSetup(0, 1, this, 44100, beat.getBufferSize(), 4);
   
   // Switch back to external data folder
-  ofSetDataPathRoot("../../../data/");
+  // ofSetDataPathRoot("../../../data/");
   
   ofBackground(0);
   pauseProg = false;
@@ -113,7 +113,7 @@ void cyrilApp::setup(){
   _state.stk = new stack<float>;
   // Initialise our own matrix stack
   // TODO: replace with call to get from current renderer?
-  _state.ms = new ofMatrixStack(*ofGetWindowPtr());
+  _state.ms = new ofMatrixStack(ofGetWindowPtr());
   // Initialise empty paticle system
   _state.ps = new vector<Particle*>;
   // Initialise empty variable/register map
@@ -194,8 +194,8 @@ void cyrilApp::setup(){
   //mClient.set("","Cyril Server");
   
 	// listen on the given port
-	cout << "listening for osc messages on " + getIpAddress() + ":" << PORT << endl;
-	receiver.setup(PORT);
+//	cout << "listening for osc messages on " + getIpAddress() + ":" << PORT << endl;
+//	receiver.setup(PORT);
   
   // Configure the ofxPostProcessing effects
   _state.post = ofxPostProcessing();
@@ -219,11 +219,14 @@ void cyrilApp::update(){
         ofFile f = ofFile("code/" + ofToString(i) + ".cy");
         if (f.exists()) {
          // cout << f.getPocoFile().getLastModified().epochTime() << endl;
-            Poco::Timestamp t = f.getPocoFile().getLastModified();
-            if (t > modTimes[i]) {
-                modTimes[i] = t;
-                reloadFileBuffer("code/" + ofToString(i) + ".cy");
-            }
+
+
+//          //TODO: had to disable this as ofFile has changed, cf no PocoFile
+//            Poco::Timestamp t = f.getPocoFile().getLastModified();
+//            if (t > modTimes[i]) {
+//                modTimes[i] = t;
+//                reloadFileBuffer("code/" + ofToString(i) + ".cy");
+//            }
         }
         else {
             //cout << "file " + ofToString(i) << ".cy not found" << endl;
@@ -276,58 +279,58 @@ void cyrilApp::update(){
   ofRemove(*_state.ps, Particle::isDead);
   
   
-	// check for waiting OSC messages
-	while(receiver.hasWaitingMessages()){
-		// get the next message
-		ofxOscMessage m;
-        receiver.getNextMessage(&m);
-        // Check for the toggle messages
-        bool msgProcessed = false;
-        for (int i = 1; i < 9; ++i) {
-            if (m.getAddress() == ("/1/toggle" + ofToString(i))) {
-                cout << "Process message " <<  ("/1/toggle" + ofToString(i)) << endl;
-                if (m.getArgAsFloat(0) == 0) {
-                    toggleScript(i, false);
-                }
-                else if (m.getArgAsFloat(0) == 1) {
-                    toggleScript(i, true);
-                }
-                msgProcessed = true;
-            }
-        }
-        if (m.getAddress() == "/1/xy1") {
-            (*_state.sym)[OSC_X] = m.getArgAsFloat(0);
-            (*_state.sym)[OSC_Y] = m.getArgAsFloat(1);
-            msgProcessed = true;
-        }
-        else if (m.getAddress() == "/1/fader1") {
-            (*_state.sym)[OSC_F1] = m.getArgAsFloat(0);
-            msgProcessed = true;
-        }
-        else if (m.getAddress() == "/1/fader2") {
-            (*_state.sym)[OSC_F2] = m.getArgAsFloat(0);
-            msgProcessed = true;
-        }
-        else if (m.getAddress() == "/1/fader3") {
-            (*_state.sym)[OSC_F3] = m.getArgAsFloat(0);
-            msgProcessed = true;
-        }
-        else if (m.getAddress() == "/1/fader4") {
-            (*_state.sym)[OSC_F4] = m.getArgAsFloat(0);
-            msgProcessed = true;
-        }
-        
-        if (!msgProcessed) {
-            cout << "Unknown OSC message " << m.getAddress() << endl;
-        }
-        
-        /*
-        string msg_string;
-        msg_string = m.getAddress();
-        cout << msg_string << endl;
-        cout << m.getArgAsFloat(0);
-        */
-  }
+//	// check for waiting OSC messages
+//	while(receiver.hasWaitingMessages()){
+//		// get the next message
+//		ofxOscMessage m;
+//        receiver.getNextMessage(&m);
+//        // Check for the toggle messages
+//        bool msgProcessed = false;
+//        for (int i = 1; i < 9; ++i) {
+//            if (m.getAddress() == ("/1/toggle" + ofToString(i))) {
+//                cout << "Process message " <<  ("/1/toggle" + ofToString(i)) << endl;
+//                if (m.getArgAsFloat(0) == 0) {
+//                    toggleScript(i, false);
+//                }
+//                else if (m.getArgAsFloat(0) == 1) {
+//                    toggleScript(i, true);
+//                }
+//                msgProcessed = true;
+//            }
+//        }
+//        if (m.getAddress() == "/1/xy1") {
+//            (*_state.sym)[OSC_X] = m.getArgAsFloat(0);
+//            (*_state.sym)[OSC_Y] = m.getArgAsFloat(1);
+//            msgProcessed = true;
+//        }
+//        else if (m.getAddress() == "/1/fader1") {
+//            (*_state.sym)[OSC_F1] = m.getArgAsFloat(0);
+//            msgProcessed = true;
+//        }
+//        else if (m.getAddress() == "/1/fader2") {
+//            (*_state.sym)[OSC_F2] = m.getArgAsFloat(0);
+//            msgProcessed = true;
+//        }
+//        else if (m.getAddress() == "/1/fader3") {
+//            (*_state.sym)[OSC_F3] = m.getArgAsFloat(0);
+//            msgProcessed = true;
+//        }
+//        else if (m.getAddress() == "/1/fader4") {
+//            (*_state.sym)[OSC_F4] = m.getArgAsFloat(0);
+//            msgProcessed = true;
+//        }
+//
+//        if (!msgProcessed) {
+//            cout << "Unknown OSC message " << m.getAddress() << endl;
+//        }
+//
+//        /*
+//        string msg_string;
+//        msg_string = m.getAddress();
+//        cout << msg_string << endl;
+//        cout << m.getArgAsFloat(0);
+//        */
+//  }
   
 }
 

@@ -8,7 +8,9 @@ map < string, ofColor > colorNameMap;
 
 int main( ){
   // Set this temporarily to load font from packaged Resources
-  ofSetDataPathRoot("../Resources/data");
+  //ofSetDataPathRoot("../Resources/data");
+  ofDisableDataPath();
+
   ofSetEscapeQuitsApp(false);
   
   colorNameMap["white"] = ofColor::white;

@@ -58,6 +58,8 @@ include_directories(lib/poco/include)
 
 include_directories(lib/cairo/include/cairo)
 
+include_directories(lib/rtAudio/include)
+
 include_directories(lib/openFrameworks)
 include_directories(lib/openFrameworks/3d)
 include_directories(lib/openFrameworks/app)
@@ -78,7 +80,7 @@ list(REMOVE_ITEM openFrameworks_SRC ${CMAKE_CURRENT_SOURCE_DIR}/lib/openFramewor
 #list(REMOVE_ITEM openFrameworks_SRC ${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/app/ofAppGLFWWindow.cpp)
 list(REMOVE_ITEM openFrameworks_SRC ${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/app/ofAppGlutWindow.cpp)
 #list(REMOVE_ITEM openFrameworks_SRC ${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/graphics/ofCairoRenderer.cpp)
-list(REMOVE_ITEM openFrameworks_SRC ${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/sound/ofRtAudioSoundStream.cpp)
+#list(REMOVE_ITEM openFrameworks_SRC ${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/sound/ofRtAudioSoundStream.cpp)
 #list(REMOVE_ITEM openFrameworks_SRC ${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/utils/ofURLFileLoader.cpp)
 list(REMOVE_ITEM openFrameworks_SRC ${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/video/ofGstVideoGrabber.cpp)
 list(REMOVE_ITEM openFrameworks_SRC ${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/video/ofGstVideoPlayer.cpp)
@@ -91,7 +93,7 @@ set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/app/o
 set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/lib/openFrameworks/utils/ofSystemUtils.cpp
         PROPERTIES COMPILE_FLAGS "-x objective-c++")
 
-set(SOURCE_FILES src/test.cpp)
+set(SOURCE_FILES src/main.cpp)
 add_executable(cyrilTemp ${SOURCE_FILES} ${BISON_CyrilParser_OUTPUTS} ${FLEX_CyrilScanner_OUTPUTS})
 target_link_libraries(cyrilTemp openFrameworks libtess2 ${POCO_LIBS})
 target_link_libraries(cyrilTemp "-framework CoreFoundation")
@@ -99,6 +101,7 @@ target_link_libraries(cyrilTemp "-framework Cocoa")
 target_link_libraries(cyrilTemp "-framework IOKit")
 target_link_libraries(cyrilTemp "-framework CoreVideo")
 target_link_libraries(cyrilTemp "-framework CoreText")
+target_link_libraries(cyrilTemp "-framework CoreAudio")
 target_link_libraries(cyrilTemp ${CMAKE_CURRENT_SOURCE_DIR}/lib/freetype/lib/osx/freetype.a)
 target_link_libraries(cyrilTemp ${CMAKE_CURRENT_SOURCE_DIR}/lib/FreeImage/lib/osx/freeimage.a)
 target_link_libraries(cyrilTemp ${OPENGL_LIBRARIES})
@@ -113,6 +116,8 @@ target_link_libraries(cyrilTemp ${CMAKE_CURRENT_SOURCE_DIR}/lib/cairo/lib/osx/ca
 target_link_libraries(cyrilTemp ${CMAKE_CURRENT_SOURCE_DIR}/lib/cairo/lib/osx/cairo.a)
 target_link_libraries(cyrilTemp ${CMAKE_CURRENT_SOURCE_DIR}/lib/cairo/lib/osx/pixman-1.a)
 target_link_libraries(cyrilTemp ${CMAKE_CURRENT_SOURCE_DIR}/lib/cairo/lib/osx/png.a)
+target_link_libraries(cyrilTemp ${CMAKE_CURRENT_SOURCE_DIR}/lib/rtAudio/lib/osx/rtAudio.a)
+
 
 
 set(LIB_FMODEX ${CMAKE_CURRENT_SOURCE_DIR}/lib/fmodex/lib/osx/libfmodex.dylib)
@@ -123,6 +128,10 @@ ADD_CUSTOM_COMMAND(TARGET cyrilTemp
         ARGS ${LIB_FMODEX} ${CMAKE_CURRENT_BINARY_DIR}
         )
 
+ADD_CUSTOM_COMMAND(TARGET cyrilTemp
+        POST_BUILD
+        COMMAND /bin/cp
+        ARGS ${CMAKE_CURRENT_SOURCE_DIR}/DroidSansMono.ttf ${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB cyril_SRC
         "src/Cyril/*.cpp"
@@ -140,4 +149,16 @@ file(GLOB postProcessing_SRC
 target_sources(cyrilTemp PUBLIC ${postProcessing_SRC})
 
 
+file(GLOB ofxBeat_SRC
+        "addons/ofxBeat/src/*.cpp"
+        )
+target_sources(cyrilTemp PUBLIC ${ofxBeat_SRC})
 
+file(GLOB ofxEditor_SRC
+        "addons/ofxEditor/src/*.cpp"
+        )
+target_sources(cyrilTemp PUBLIC ${ofxEditor_SRC})
+set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/addons/ofxEditor/src/ClipBoard.cpp
+        PROPERTIES COMPILE_FLAGS "-x objective-c++")
+
+target_sources(cyrilTemp PUBLIC src/cyrilApp.cpp)
