@@ -32,7 +32,7 @@ public:
   virtual void eval(CyrilState &_s) {
     //cout << "Load " << loc << ": " << (*_s.sym)[loc] << endl;
     //cout << _s.sym->count(loc) << endl;
-      if ((*_s.sym)[loc] == 0 && (*_s.parent->sym)[loc] != 0) {
+      if ((*_s.sym)[loc] == 0 && (_s.parent != 0) && (*_s.parent->sym)[loc] != 0) {
           _s.stk->push((*_s.parent->sym)[loc]);
       }
       else {
