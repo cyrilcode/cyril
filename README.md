@@ -1,5 +1,7 @@
 # Cyril - Live Coding
 
+**New? [Check the getting started guide](https://medium.com/cyril-live-coding/getting-started-with-beta-6-c74e93463c3d)** 
+
 **NEW BRANCH:** Dev is continuing on the [CMake Branch](https://github.com/cyrilcode/cyril/tree/cmake)
 
 The Cyril programming language is designed for fast prototyping of visualisations and live coding visuals.
