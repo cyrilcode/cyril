@@ -6,9 +6,6 @@
 
 The Cyril programming language is designed for fast prototyping of visualisations and live coding visuals.
 
-Full information on the website:
-
- * http://cyrilcode.com
 
 ## Getting Started
 
